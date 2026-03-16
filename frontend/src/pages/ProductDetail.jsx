@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from '../utils/axios'
 import { CartContext } from '../context/CartContext'
+import { getStoredAffiliateCode, trackAffiliateClick } from '../utils/affiliateTracker'
 import { Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, MessageCircle } from 'lucide-react'
 
 const ProductDetail = () => {
@@ -18,6 +19,12 @@ const ProductDetail = () => {
 
   useEffect(() => {
     fetchProduct()
+    
+    // Track affiliate click for product view
+    const affiliateCode = getStoredAffiliateCode()
+    if (affiliateCode) {
+      trackAffiliateClick(affiliateCode, id)
+    }
   }, [id])
 
   useEffect(() => {

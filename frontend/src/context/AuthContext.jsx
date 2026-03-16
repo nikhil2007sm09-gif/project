@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import axios from '../utils/axios'
+import { migrateGuestWishlist } from '../utils/wishlistUtils'
 
 export const AuthContext = createContext()
 
@@ -37,6 +38,12 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', res.data.token)
       axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
       setUser(res.data.user)
+      
+      // Migrate guest wishlist to user account
+      setTimeout(() => {
+        migrateGuestWishlist()
+      }, 1000)
+      
       return res.data
     } catch (error) {
       console.error('Login error:', error.response?.data)
@@ -65,6 +72,7 @@ export const AuthProvider = ({ children }) => {
       console.error('Logout tracking error:', error)
     } finally {
       localStorage.removeItem('token')
+      localStorage.removeItem('guestWishlist') // Clear guest wishlist on logout
       delete axios.defaults.headers.common['Authorization']
       setUser(null)
     }

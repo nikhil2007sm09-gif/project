@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from '../utils/axios'
 import { CartContext } from '../context/CartContext'
 import { AuthContext } from '../context/AuthContext'
+import { getStoredAffiliateCode } from '../utils/affiliateTracker'
 import { CreditCard, Smartphone, Building2, Wallet, Shield, Truck, CheckCircle } from 'lucide-react'
 
 const Checkout = () => {
@@ -92,8 +93,8 @@ const Checkout = () => {
         }
 
         try {
-          // Get affiliate code from localStorage if exists
-          const affiliateCode = localStorage.getItem('affiliateCode')
+          // Get affiliate code from session storage if exists
+          const affiliateCode = getStoredAffiliateCode()
           
           // Create order directly
           const orderResponse = await axios.post('/api/orders', {
@@ -190,8 +191,8 @@ const Checkout = () => {
             })
 
             if (verifyRes.data.success) {
-              // Get affiliate code from localStorage if exists
-              const affiliateCode = localStorage.getItem('affiliateCode')
+              // Get affiliate code from session storage if exists
+              const affiliateCode = getStoredAffiliateCode()
               
               // Create order in database
               const orderResponse = await axios.post('/api/orders', {

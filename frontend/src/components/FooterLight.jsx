@@ -79,23 +79,23 @@ const Footer = () => {
   }
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-gray-100 via-gray-50 to-white text-gray-800 overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #ffffff 2px, transparent 2px), radial-gradient(circle at 75% 75%, #ffffff 2px, transparent 2px)`,
+          backgroundImage: `radial-gradient(circle at 25% 25%, #6b7280 2px, transparent 2px), radial-gradient(circle at 75% 75%, #6b7280 2px, transparent 2px)`,
           backgroundSize: '60px 60px'
         }}></div>
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-10 left-10 w-20 h-20 bg-purple-500/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute top-32 right-20 w-16 h-16 bg-blue-500/10 rounded-full blur-xl animate-pulse animation-delay-1000"></div>
-      <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-pink-500/10 rounded-full blur-xl animate-pulse animation-delay-2000"></div>
+      <div className="absolute top-10 left-10 w-20 h-20 bg-purple-200/30 rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute top-32 right-20 w-16 h-16 bg-blue-200/30 rounded-full blur-xl animate-pulse animation-delay-1000"></div>
+      <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-pink-200/30 rounded-full blur-xl animate-pulse animation-delay-2000"></div>
 
       <div className="relative z-10">
         {/* Top Section with Live Stats */}
-        <div className="border-b border-gray-700/50 bg-gradient-to-r from-purple-900/20 to-blue-900/20">
+        <div className="border-b border-gray-300/50 bg-gradient-to-r from-purple-100/30 to-blue-100/30">
           <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               
@@ -107,16 +107,16 @@ const Footer = () => {
                     <div className="absolute -top-1 -right-1 bg-green-400 w-3 h-3 rounded-full live-pulse"></div>
                   )}
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   {stats.loading ? (
-                    <div className="animate-pulse bg-gray-600 h-6 w-12 mx-auto rounded"></div>
+                    <div className="animate-pulse bg-gray-300 h-6 w-12 mx-auto rounded"></div>
                   ) : (
                     <span className="animate-fade-in animate-counter">{formatNumber(stats.customers)}</span>
                   )}
                 </div>
-                <div className="text-sm text-gray-400 flex items-center justify-center gap-1">
+                <div className="text-sm text-gray-600 flex items-center justify-center gap-1">
                   Happy Customers
-                  {!stats.loading && <TrendingUp className="w-3 h-3 text-green-400" />}
+                  {!stats.loading && <TrendingUp className="w-3 h-3 text-green-600" />}
                 </div>
               </div>
 
@@ -128,16 +128,16 @@ const Footer = () => {
                     <div className="absolute -top-1 -right-1 bg-green-400 w-3 h-3 rounded-full live-pulse"></div>
                   )}
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   {stats.loading ? (
-                    <div className="animate-pulse bg-gray-600 h-6 w-12 mx-auto rounded"></div>
+                    <div className="animate-pulse bg-gray-300 h-6 w-12 mx-auto rounded"></div>
                   ) : (
                     <span className="animate-fade-in animate-counter">{formatNumber(stats.orders)}</span>
                   )}
                 </div>
-                <div className="text-sm text-gray-400 flex items-center justify-center gap-1">
+                <div className="text-sm text-gray-600 flex items-center justify-center gap-1">
                   Orders Completed
-                  {!stats.loading && <TrendingUp className="w-3 h-3 text-green-400" />}
+                  {!stats.loading && <TrendingUp className="w-3 h-3 text-green-600" />}
                 </div>
               </div>
 
@@ -149,18 +149,18 @@ const Footer = () => {
                     <div className="absolute -top-1 -right-1 bg-yellow-400 w-3 h-3 rounded-full live-pulse"></div>
                   )}
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                   {stats.loading ? (
-                    <div className="animate-pulse bg-gray-600 h-6 w-12 mx-auto rounded"></div>
+                    <div className="animate-pulse bg-gray-300 h-6 w-12 mx-auto rounded"></div>
                   ) : (
                     <span className="animate-fade-in animate-counter">{stats.rating}★</span>
                   )}
                 </div>
-                <div className="text-sm text-gray-400 flex items-center justify-center gap-1">
+                <div className="text-sm text-gray-600 flex items-center justify-center gap-1">
                   Customer Rating
                   {!stats.loading && <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className={`text-xs ${i < Math.floor(stats.rating) ? 'text-yellow-400' : 'text-gray-600'}`}>★</span>
+                      <span key={i} className={`text-xs ${i < Math.floor(stats.rating) ? 'text-yellow-500' : 'text-gray-400'}`}>★</span>
                     ))}
                   </div>}
                 </div>
@@ -174,16 +174,16 @@ const Footer = () => {
                     <div className="absolute -top-1 -right-1 bg-blue-400 w-3 h-3 rounded-full live-pulse"></div>
                   )}
                 </div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <div className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                   {stats.loading ? (
-                    <div className="animate-pulse bg-gray-600 h-6 w-12 mx-auto rounded"></div>
+                    <div className="animate-pulse bg-gray-300 h-6 w-12 mx-auto rounded"></div>
                   ) : (
                     <span className="animate-fade-in animate-counter">{stats.deliveryHours}h</span>
                   )}
                 </div>
-                <div className="text-sm text-gray-400 flex items-center justify-center gap-1">
+                <div className="text-sm text-gray-600 flex items-center justify-center gap-1">
                   Fast Delivery
-                  {!stats.loading && <div className="text-green-400 text-xs">⚡ Live</div>}
+                  {!stats.loading && <div className="text-green-600 text-xs">⚡ Live</div>}
                 </div>
               </div>
 
@@ -192,11 +192,11 @@ const Footer = () => {
             {/* Live Update Indicator */}
             {!stats.loading && (
               <div className="text-center mt-4">
-                <div className="inline-flex items-center gap-3 bg-green-500/10 border border-green-500/20 rounded-full px-6 py-3">
-                  <div className="w-2 h-2 bg-green-400 rounded-full live-pulse"></div>
-                  <span className="text-green-400 text-sm font-medium">Live Statistics</span>
+                <div className="inline-flex items-center gap-3 bg-green-100/50 border border-green-300/30 rounded-full px-6 py-3">
+                  <div className="w-2 h-2 bg-green-500 rounded-full live-pulse"></div>
+                  <span className="text-green-700 text-sm font-medium">Live Statistics</span>
                   {stats.lastUpdated && (
-                    <span className="text-green-300 text-xs">
+                    <span className="text-green-600 text-xs">
                       Updated {stats.lastUpdated.toLocaleTimeString()}
                     </span>
                   )}
@@ -205,10 +205,10 @@ const Footer = () => {
                       setStats(prev => ({ ...prev, loading: true }))
                       fetchStats()
                     }}
-                    className="ml-2 p-1 hover:bg-green-500/20 rounded-full transition-colors"
+                    className="ml-2 p-1 hover:bg-green-200/30 rounded-full transition-colors"
                     title="Refresh Stats"
                   >
-                    <RefreshCw className="w-3 h-3 text-green-400 hover:animate-spin" />
+                    <RefreshCw className="w-3 h-3 text-green-600 hover:animate-spin" />
                   </button>
                 </div>
               </div>
@@ -223,25 +223,25 @@ const Footer = () => {
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="mb-6">
-                <h3 className="text-3xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent mb-4">
+                <h3 className="text-3xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-4">
                   Hi Clothe
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6">
                   Discover the latest fashion trends with premium quality clothing at unbeatable prices. Your style, our passion.
                 </p>
                 
                 {/* Features */}
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-sm text-gray-300">
-                    <Shield className="w-4 h-4 text-green-400" />
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Shield className="w-4 h-4 text-green-500" />
                     <span>100% Secure Shopping</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-300">
-                    <Truck className="w-4 h-4 text-blue-400" />
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Truck className="w-4 h-4 text-blue-500" />
                     <span>Free Shipping Above ₹999</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-gray-300">
-                    <Heart className="w-4 h-4 text-red-400" />
+                  <div className="flex items-center gap-3 text-sm text-gray-600">
+                    <Heart className="w-4 h-4 text-red-500" />
                     <span>Made with Love in India</span>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white relative">
+              <h4 className="text-lg font-bold mb-6 text-gray-800 relative">
                 Quick Links
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
               </h4>
@@ -264,9 +264,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       to={link.to} 
-                      className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block group"
+                      className="text-gray-600 hover:text-gray-800 transition-all duration-300 hover:translate-x-2 inline-block group"
                     >
-                      <span className="group-hover:text-purple-400 transition-colors">→</span> {link.label}
+                      <span className="group-hover:text-purple-600 transition-colors">→</span> {link.label}
                     </Link>
                   </li>
                 ))}
@@ -275,7 +275,7 @@ const Footer = () => {
 
             {/* Policies */}
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white relative">
+              <h4 className="text-lg font-bold mb-6 text-gray-800 relative">
                 Policies
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
               </h4>
@@ -289,9 +289,9 @@ const Footer = () => {
                   <li key={index}>
                     <Link 
                       to={link.to} 
-                      className="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block group"
+                      className="text-gray-600 hover:text-gray-800 transition-all duration-300 hover:translate-x-2 inline-block group"
                     >
-                      <span className="group-hover:text-blue-400 transition-colors">→</span> {link.label}
+                      <span className="group-hover:text-blue-600 transition-colors">→</span> {link.label}
                     </Link>
                   </li>
                 ))}
@@ -300,25 +300,25 @@ const Footer = () => {
 
             {/* Contact & Business */}
             <div>
-              <h4 className="text-lg font-bold mb-6 text-white relative">
+              <h4 className="text-lg font-bold mb-6 text-gray-800 relative">
                 Get In Touch
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
               </h4>
               
               {/* Newsletter Subscription */}
-              <div className="mb-6 p-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl">
-                <h5 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+              <div className="mb-6 p-4 bg-gradient-to-br from-purple-100/50 to-pink-100/50 border border-purple-200/30 rounded-xl">
+                <h5 className="text-sm font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   📧 Newsletter
-                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-green-200/50 text-green-700 px-2 py-1 rounded-full">
                     {!stats.loading ? `${Math.floor(stats.customers * 0.6)}+ subscribers` : 'Loading...'}
                   </span>
                 </h5>
-                <p className="text-xs text-gray-400 mb-3">Get exclusive deals, early access & style tips</p>
+                <p className="text-xs text-gray-600 mb-3">Get exclusive deals, early access & style tips</p>
                 <div className="flex gap-2">
                   <input 
                     type="email" 
                     placeholder="Enter email"
-                    className="flex-1 px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none"
+                    className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-lg text-sm text-gray-800 placeholder-gray-500 focus:border-purple-500 focus:outline-none"
                   />
                   <button className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm rounded-lg hover:from-purple-600 hover:to-pink-600 transition-colors">
                     Join
@@ -329,21 +329,21 @@ const Footer = () => {
               
               {/* Contact Info */}
               <div className="space-y-4 mb-6">
-                <div className="flex items-center gap-3 text-gray-300">
+                <div className="flex items-center gap-3 text-gray-600">
                   <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-2 rounded-lg">
                     <Mail className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400">Email</div>
+                    <div className="text-xs text-gray-500">Email</div>
                     <div className="text-sm">nikhil2007sm09@gmail.com</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-gray-300">
+                <div className="flex items-center gap-3 text-gray-600">
                   <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-2 rounded-lg">
                     <Phone className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400">Phone</div>
+                    <div className="text-xs text-gray-500">Phone</div>
                     <div className="text-sm">+91 7988454150</div>
                   </div>
                 </div>
@@ -351,12 +351,12 @@ const Footer = () => {
 
               {/* Business Links */}
               <div className="mb-6">
-                <h5 className="text-sm font-semibold text-gray-300 mb-3">For Business</h5>
+                <h5 className="text-sm font-semibold text-gray-600 mb-3">For Business</h5>
                 <div className="space-y-2">
-                  <Link to="/vendor/login" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link to="/vendor/login" className="block text-gray-600 hover:text-gray-800 transition-colors text-sm">
                     🏪 Vendor Portal
                   </Link>
-                  <Link to="/affiliate/login" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link to="/affiliate/login" className="block text-gray-600 hover:text-gray-800 transition-colors text-sm">
                     🤝 Affiliate Program
                   </Link>
                 </div>
@@ -364,7 +364,7 @@ const Footer = () => {
 
               {/* Social Media */}
               <div>
-                <h5 className="text-sm font-semibold text-gray-300 mb-3">Follow Us</h5>
+                <h5 className="text-sm font-semibold text-gray-600 mb-3">Follow Us</h5>
                 <div className="flex gap-3">
                   {[
                     { icon: Facebook, color: "from-blue-600 to-blue-700", href: "#" },
@@ -387,15 +387,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700/50 bg-gradient-to-r from-gray-900/50 to-black/50">
+        <div className="border-t border-gray-300/50 bg-gradient-to-r from-gray-100/50 to-gray-50/50">
           <div className="container mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
               <div className="text-center">
-                <p className="text-gray-400 text-sm">
-                  &copy; 2026 <span className="text-white font-semibold">Hi Clothe</span>. All rights reserved.
+                <p className="text-gray-600 text-sm">
+                  &copy; 2026 <span className="text-gray-800 font-semibold">Hi Clothe</span>. All rights reserved.
                 </p>
                 <p className="text-gray-500 text-xs mt-1">
-                  Made with <Heart className="w-3 h-3 text-red-400 inline mx-1" /> for fashion lovers
+                  Made with <Heart className="w-3 h-3 text-red-500 inline mx-1" /> for fashion lovers
                 </p>
               </div>
             </div>

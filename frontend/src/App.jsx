@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ProtectedRoute from './components/ProtectedRoute'
+import { getAffiliateCodeFromURL, storeAffiliateCode, trackAffiliateClick } from './utils/affiliateTracker'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -39,16 +41,33 @@ import ShippingDelivery from './pages/ShippingDelivery'
 import CancellationRefund from './pages/CancellationRefund'
 import Product from './pages/Product'
 
+function AffiliateTracker() {
+  useEffect(() => {
+    // Check for affiliate code in URL
+    const affiliateCode = getAffiliateCodeFromURL()
+    if (affiliateCode) {
+      // Store affiliate code
+      storeAffiliateCode(affiliateCode)
+      
+      // Track the click
+      trackAffiliateClick(affiliateCode)
+      
+      // Clean URL (remove ref parameter) without page reload
+      const url = new URL(window.location)
+      url.searchParams.delete('ref')
+      window.history.replaceState({}, document.title, url.toString())
+    }
+  }, [])
 
-
-
-
+  return null
+}
 
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
         <Router>
+          <AffiliateTracker />
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">

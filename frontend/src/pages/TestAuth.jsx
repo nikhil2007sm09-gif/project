@@ -28,6 +28,7 @@ const TestAuth = () => {
               <div>
                 <strong>Email:</strong> {user.email}
               </div>
+
               <div>
                 <strong>Role:</strong> {user.role}
               </div>

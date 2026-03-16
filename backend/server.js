@@ -19,6 +19,7 @@ import contactRoutes from './routes/contact.js'
 import sizeRoutes from './routes/sizes.js'
 import colorRoutes from './routes/colors.js'
 import archiveRoutes from './routes/archive.js'
+import statsRoutes from './routes/stats.js'
 
 dotenv.config()
 
@@ -51,6 +52,7 @@ app.use('/api/contact', contactRoutes)
 app.use('/api/sizes', sizeRoutes)
 app.use('/api/colors', colorRoutes)
 app.use('/api/archive', archiveRoutes)
+app.use('/api/stats', statsRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'ClothesShop API' })

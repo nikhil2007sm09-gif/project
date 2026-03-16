@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import { archiveUserData, getArchivedUserData, searchArchivedUsers } from '../services/archiveService.js'
-import User from '../models/User.js'
+import { archiveUserData, getArchivedUserData, searchArchivedUsers } from './services/archiveService.js'
+import User from './models/User.js'
 
 dotenv.config()
 
