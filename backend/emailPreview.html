@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Templates Preview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      margin: 0;
+    }
+    .preview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .template-section {
+      margin-bottom: 60px;
+    }
+    .template-title {
+      background: #667eea;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px 8px 0 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .template-preview {
+      background: white;
+      padding: 20px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <h1>📧 Email Templates Preview</h1>
+    
+    <div class="template-section">
+      <div class="template-title">
+        1. Vendor Registration Email (Welcome Email)
+      </div>
+      <div class="template-preview">
+        <iframe id="registration-template"></iframe>
+      </div>
+    </div>
+    
+    <div class="template-section">
+      <div class="template-title">
+        2. Vendor Approval Email (Congratulations Email)
+      </div>
+      <div class="template-preview">
+        <iframe id="approval-template"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Registration Email Template
+    const registrationTemplate = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+          }
+          .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+          .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+          }
+          .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+          }
+          .content {
+            padding: 40px 30px;
+          }
+          .content h2 {
+            color: #667eea;
+            margin-top: 0;
+          }
+          .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+          }
+          .info-box p {
+            margin: 5px 0;
+          }
+          .status-badge {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+          }
+          .next-steps {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+          }
+          .next-steps h3 {
+            color: #1976d2;
+            margin-top: 0;
+          }
+          .next-steps ol {
+            margin: 10px 0;
+            padding-left: 20px;
+          }
+          .next-steps li {
+            margin: 8px 0;
+          }
+          .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+          }
+          .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 30px 0;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🎉 Welcome to ClothesShop!</h1>
+            <p style="margin: 10px 0 0 0; font-size: 16px;">Your Vendor Account Has Been Created</p>
+          </div>
+          
+          <div class="content">
+            <h2>Hello John Doe! 👋</h2>
+            
+            <p>Thank you for registering as a vendor on ClothesShop. We're excited to have you join our marketplace!</p>
+            
+            <div class="info-box">
+              <p><strong>📧 Email:</strong> vendor@example.com</p>
+              <p><strong>👤 Role:</strong> Vendor</p>
+              <p><strong>📅 Registration Date:</strong> ${new Date().toLocaleDateString()}</p>
+            </div>
+            
+            <p><strong>Current Status:</strong></p>
+            <span class="status-badge">⏳ Pending Admin Approval</span>
+            
+            <div class="next-steps">
+              <h3>📋 What Happens Next?</h3>
+              <ol>
+                <li><strong>Admin Review:</strong> Our team will review your vendor application within 24-48 hours.</li>
+                <li><strong>Approval Notification:</strong> You'll receive an email once your account is approved.</li>
+                <li><strong>Start Selling:</strong> After approval, you can login and start adding your products!</li>
+              </ol>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h3>🚀 Once Approved, You Can:</h3>
+            <ul>
+              <li>✅ Add unlimited products to your store</li>
+              <li>✅ Upload product images and descriptions</li>
+              <li>✅ Manage inventory and pricing</li>
+              <li>✅ Track your sales and orders</li>
+              <li>✅ Access vendor dashboard with analytics</li>
+            </ul>
+            
+            <div class="divider"></div>
+            
+            <h3>💡 Tips for Success:</h3>
+            <ul>
+              <li>Use high-quality product images</li>
+              <li>Write detailed product descriptions</li>
+              <li>Keep your inventory updated</li>
+              <li>Respond quickly to customer inquiries</li>
+              <li>Offer competitive pricing</li>
+            </ul>
+            
+            <p style="margin-top: 30px;">If you have any questions, feel free to contact our support team.</p>
+            
+            <p style="margin-top: 20px;">
+              <strong>Best regards,</strong><br>
+              The ClothesShop Team
+            </p>
+          </div>
+          
+          <div class="footer">
+            <p>© ${new Date().getFullYear()} ClothesShop. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">
+              This is an automated email. Please do not reply to this message.
+            </p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    // Approval Email Template
+    const approvalTemplate = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+          }
+          .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          }
+          .header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+          }
+          .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+          }
+          .content {
+            padding: 40px 30px;
+          }
+          .success-icon {
+            text-align: center;
+            font-size: 60px;
+            margin: 20px 0;
+          }
+          .button {
+            display: inline-block;
+            background: #11998e;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+          }
+          .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🎊 Congratulations!</h1>
+            <p style="margin: 10px 0 0 0; font-size: 16px;">Your Vendor Account is Approved</p>
+          </div>
+          
+          <div class="content">
+            <div class="success-icon">✅</div>
+            
+            <h2 style="text-align: center; color: #11998e;">Welcome Aboard, John Doe!</h2>
+            
+            <p style="text-align: center; font-size: 16px;">
+              Great news! Your vendor account has been approved by our admin team. 
+              You can now start selling on ClothesShop!
+            </p>
+            
+            <div style="text-align: center; margin: 30px 0;">
+              <a href="http://localhost:5173/vendor/login" class="button">
+                Login to Dashboard
+              </a>
+            </div>
+            
+            <h3>🚀 Get Started:</h3>
+            <ol>
+              <li>Login to your vendor dashboard</li>
+              <li>Add your first product</li>
+              <li>Upload product images</li>
+              <li>Set competitive prices</li>
+              <li>Start receiving orders!</li>
+            </ol>
+            
+            <p style="margin-top: 30px;">
+              <strong>Best regards,</strong><br>
+              The ClothesShop Team
+            </p>
+          </div>
+          
+          <div class="footer">
+            <p>© ${new Date().getFullYear()} ClothesShop. All rights reserved.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+
+    // Load templates into iframes
+    document.getElementById('registration-template').srcdoc = registrationTemplate;
+    document.getElementById('approval-template').srcdoc = approvalTemplate;
+  </script>
+</body>
+</html>
