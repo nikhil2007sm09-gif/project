@@ -56,7 +56,7 @@ npm run dev
 ### 4. Open Browser
 
 Go to: http://localhost:3000
-
+<!-- 
 ## 🧪 Test Accounts
 
 | Role | Email | Password |
@@ -64,7 +64,7 @@ Go to: http://localhost:3000
 | Admin | admin@test.com | admin123 |
 | Vendor | vendor@test.com | vendor123 |
 | Affiliate | affiliate@test.com | affiliate123 |
-| Customer | customer@test.com | customer123 |
+| Customer | customer@test.com | customer123 | -->
 
 ## 📚 Documentation
 
