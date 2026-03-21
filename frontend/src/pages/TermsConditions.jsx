@@ -93,7 +93,7 @@ const TermsConditions = () => {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-center text-gray-600">
+            <p className="text-center text-gray-600 ">
               By using our service, you acknowledge that you have read and understood these Terms & Conditions.
             </p>
           </div>

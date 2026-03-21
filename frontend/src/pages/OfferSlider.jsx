@@ -61,7 +61,7 @@ export default function OfferSlide() {
                 {slides[index].desc}
               </p>
 
-              <button className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold">
+              <button className="bg-[#ED6D15] hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold">
                 {slides[index].btn}
               </button>
             </div>

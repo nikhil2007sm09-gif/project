@@ -81,35 +81,42 @@ const Navbar = () => {
               </svg>
             </div>
             
-            {/* Logo Text */}
-            <div className="flex flex-col">
-              <div className="flex items-baseline">
-                <span className="text-xl md:text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600" style={{ fontFamily: 'cursive' }}>
-                  Clothes
-                </span>
-                <span className="text-xl md:text-2xl font-black text-gray-800" style={{ fontFamily: 'cursive' }}>
-                  Shop
-                </span>
-              </div>
-              <div className="h-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-transparent rounded-full"></div>
-            </div>
+         {/* Logo Text */}
+<div className="flex flex-col">
+  <div className="flex items-baseline gap-[2px] border-b-2 border-[#D8A990] pb-[2px]">
+    <span
+      className="text-xl md:text-2xl font-black text-[#E1A154] leading-none"
+      style={{ fontFamily: 'cursive' }}
+    >
+      Clothes
+    </span>
+    <span
+      className="text-xl md:text-2xl font-black text-[#3F322C] leading-none"
+      style={{ fontFamily: 'cursive' }}
+    >
+      Shop
+    </span>
+  </div>
+  {/* Bottom Line */}
+  <div className="h-0.5 bg-[#C6C5B8] rounded-full"></div>
+</div>
           </Link>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            <Link to="/" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold text-sm lg:text-base">
+            <Link to="/" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-all duration-300 font-semibold text-sm lg:text-base">
               Home
             </Link>
-            <Link to="/about" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold text-sm lg:text-base">
+            <Link to="/about" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-all duration-300 font-semibold text-sm lg:text-base">
               About
             </Link>
-            <Link to="/products" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold text-sm lg:text-base">
+            <Link to="/products" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-all duration-300 font-semibold text-sm lg:text-base">
               Products
             </Link>
-            <Link to="/blog" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold text-sm lg:text-base">
+            <Link to="/blog" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-all duration-300 font-semibold text-sm lg:text-base">
               Blog
             </Link>
-            <Link to="/contact" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-purple-600 hover:bg-purple-50 transition-all duration-300 font-semibold text-sm lg:text-base">
+            <Link to="/contact" className="px-3 lg:px-4 py-2 rounded-full text-gray-700 hover:text-yellow-600 hover:bg-yellow-50 transition-all duration-300 font-semibold text-sm lg:text-base">
               Contact
             </Link>
           </div>
@@ -118,9 +125,9 @@ const Navbar = () => {
           <div className="flex items-center space-x-2 md:space-x-4">
             {/* Cart Icon */}
             <Link to="/cart" className="relative p-2 hover:bg-purple-50 rounded-full transition-all duration-300 group" onClick={closeMobileMenu}>
-              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-purple-600 transition-colors" />
+              <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-yellow-600 transition-colors" />
               {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shadow-lg animate-pulse">
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shadow-lg animate-pulse">
                   {cart.length}
                 </span>
               )}
@@ -200,9 +207,12 @@ const Navbar = () => {
                 )}
               </div>
             ) : (
-              <Link to="/login" className="hidden md:inline-flex items-center bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-full hover:shadow-xl transition-all duration-300 font-bold text-sm lg:text-base hover:scale-105">
-                Login
-              </Link>
+       <Link
+  to="/login"
+  className="hidden md:inline-flex items-center bg-gradient-to-r from-[#DB8B37] to-black text-white px-4 lg:px-6 py-2 lg:py-2.5 rounded-full hover:bg-black-400 hover:text-white hover:shadow-xl transition-all duration-300 font-bold text-sm lg:text-base hover:scale-105"
+>
+  Login
+</Link>
             )}
 
             {/* Mobile Menu Button */}
