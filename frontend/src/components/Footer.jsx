@@ -122,7 +122,7 @@ const Footer = () => {
 
               {/* Products Sold */}
               <div className="group">
-                <div className="bg-gradient-to-br from-blue-500 to-cyan-500 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 relative">
+                <div className="bg-gradient-to-br from-blue-500 to-cyan-500   w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 relative">
                   <ShoppingBag className="w-6 h-6 text-white" />
                   {!stats.loading && (
                     <div className="absolute -top-1 -right-1 bg-green-400 w-3 h-3 rounded-full live-pulse"></div>

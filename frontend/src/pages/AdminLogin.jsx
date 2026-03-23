@@ -60,7 +60,7 @@ const AdminLogin = () => {
               <p className="text-sm text-gray-600">Access the admin dashboard</p>
             </div>
 
-            <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-3 mb-4">
+            {/* <div className="bg-orange-50 border-2 border-orange-200 rounded-xl p-3 mb-4">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-xs text-orange-800">
@@ -77,7 +77,7 @@ const AdminLogin = () => {
                   Auto Fill
                 </button>
               </div>
-            </div>
+            </div> */}
 
             {error && (
               <div className="mb-4 rounded-xl border-2 border-red-300 bg-red-50 px-3 py-2 text-xs text-red-700 shadow-sm">

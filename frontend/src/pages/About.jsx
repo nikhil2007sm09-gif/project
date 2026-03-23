@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ShoppingBag, Users, TrendingUp, Award, Heart, Shield, Zap, Globe, Star, CheckCircle, Truck, CreditCard, ArrowRight, Sparkles, Quote, ThumbsUp, Package, Headphones, Clock, RefreshCw } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Story from "../img/clothe-ourstory-image.jpg";
+import { motion } from "framer-motion";
 
 // Counter Animation Component
 const AnimatedCounter = ({ end, duration = 2000, suffix = '', decimals = 0 }) => {
@@ -207,6 +209,25 @@ const About = () => {
     { year: '2023', title: '50K+ Customers', description: 'Built a thriving community' }
   ]
 
+ const sections = [
+  {
+    title: "Our Journey ",
+    text: "Founded in 2020, we built a platform where vendors grow, affiliates earn, and customers discover amazing products.",
+    img: "https://images.unsplash.com/photo-1552664730-d307ca884978", 
+  },
+  {
+    title: "Our Growth ",
+    text: "From a small team to thousands of vendors and millions of users, we’ve built a powerful ecosystem.",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71", 
+  },
+  {
+    title: "Our Mission ",
+    text: "We aim to empower entrepreneurs, reward affiliates, and deliver the best experience.",
+    img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f", 
+  },
+];
+
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section - Enhanced Like Home Page */}
@@ -235,19 +256,42 @@ const About = () => {
         <div className="container mx-auto px-4 py-16 sm:py-20 md:py-28 lg:py-32 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center bg-purple-100 backdrop-blur-md rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-6 sm:mb-8 border border-purple-200 shadow-lg animate-fade-in">
-              <Heart className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 animate-pulse text-purple-600" />
-              <span className="text-xs sm:text-sm font-semibold text-purple-700">Our Story • Since 2020</span>
-            </div>
+          <div className="inline-flex items-center 
+bg-gradient-to-r from-orange-100 to-orange-50 
+backdrop-blur-md rounded-full 
+px-4 sm:px-6 py-2 sm:py-3 
+mb-6 sm:mb-8 
+border border-orange-300 
+shadow-md hover:shadow-orange-400/30 
+transition-all duration-300">
+
+  <Heart className="w-4 h-4 sm:w-5 sm:h-5 mr-2 
+  text-orange-500 animate-pulse" />
+
+  <span className="text-sm sm:text-base font-bold 
+  bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 to-[#3F322C] tracking-wide">
+    Our Story • Since 2020
+  </span>
+
+</div>
             
             {/* Main Heading - Responsive */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 leading-tight animate-slide-up text-gray-900 px-2">
-              Building the Future
-              <span className="block mt-1 sm:mt-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 animate-gradient">
-                of E-Commerce
-              </span>
-            </h1>
-            
+           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 
+font-black mb-4 sm:mb-6 leading-tight animate-slide-up px-2">
+
+  <span className="text-[#3F322C]">
+    Building the Future
+  </span>
+
+  <span className="block mt-1 sm:mt-2 
+  bg-clip-text text-transparent 
+  bg-gradient-to-r from-[#E1A154] via-[#E1A154] to-[#E1A154] 
+  animate-gradient">
+    of E-Commerce
+  </span>
+
+</h1>
             {/* Subheading - Responsive */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-10 text-gray-700 max-w-3xl mx-auto leading-relaxed animate-fade-in animation-delay-500 px-4">
               Connecting vendors, affiliates, and customers in one seamless marketplace. 
@@ -256,19 +300,30 @@ const About = () => {
             
             {/* CTA Buttons - Responsive */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 animate-fade-in animation-delay-1000 px-4">
-              <Link 
-                to="/products" 
-                className="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center">
-                  Shop Now
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </Link>
+           <Link 
+  to="/products" 
+  className="group relative 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 
+  rounded-full font-bold text-base sm:text-lg 
+  hover:shadow-2xl hover:shadow-orange-500/30 
+  transition-all duration-300 
+  inline-flex items-center justify-center overflow-hidden"
+>
+  <span className="relative z-10 flex items-center">
+    Shop Now
+    <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
+  </span>
+
+  <div className="absolute inset-0 
+  bg-gradient-to-r from-orange-500 to-[#2b221d] 
+  opacity-0 group-hover:opacity-100 
+  transition-opacity duration-300">
+  </div>
+</Link>
               <Link 
                 to="/vendor/register" 
-                className="group bg-white border-2 border-purple-300 text-purple-600 px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
+                className="group bg-white border-2 border[#3F322C] text[#3F322C] px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
               >
                 <Users className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Join as Vendor
@@ -278,19 +333,19 @@ const About = () => {
             {/* Stats - Responsive with Animated Counters */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto animate-fade-in animation-delay-1500 px-2">
               <div className="bg-white/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-purple-100 hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg">
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#D68F37] to-[#D68F37]">
                   <AnimatedCounter end={50} duration={2000} suffix="K+" />
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700">Happy Customers</div>
               </div>
               <div className="bg-white/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-purple-100 hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg">
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#D68F37] to-[#D68F37]">
                   <AnimatedCounter end={500} duration={2000} suffix="+" />
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700">Trusted Vendors</div>
               </div>
               <div className="bg-white/80 backdrop-blur-md rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-purple-100 hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg">
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#D68F37] to-[#D68F37]">
                   <AnimatedCounter end={99} duration={2000} suffix="%" />
                 </div>
                 <div className="text-xs sm:text-sm font-semibold text-gray-700">Satisfaction</div>
@@ -311,34 +366,109 @@ const About = () => {
       <div className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-                OUR JOURNEY
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 sm:mb-6 px-4">Our Story</h2>
-            <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto"></div>
+           <div className="inline-block mb-4">
+  <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white text-xs sm:text-sm font-black 
+  px-4 sm:px-5 py-2 
+  rounded-full shadow-lg 
+  hover:shadow-orange-500/30 
+  transition-all duration-300 tracking-wider">
+    OUR JOURNEY
+  </span>
+</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] tracking-wide">
+    Our Story
+  </span>
+
+  <div className="h-1 w-20 mx-auto mt-3 
+  rounded-full bg-gradient-to-r 
+  from-orange-400 to-[#3F322C]"></div>
+
+</h2>
+           
           </div>
 
-          <div className="bg-gradient-to-br from-white to-purple-50/30 rounded-3xl shadow-xl p-6 sm:p-8 md:p-12 border border-purple-100">
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-                Founded in 2020, our platform was born from a simple idea: create a marketplace where 
-                vendors can thrive, affiliates can earn, and customers can discover amazing products 
-                all in one place.
-              </p>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6">
-                What started as a small team with big dreams has grown into a thriving community of 
-                thousands of vendors and millions of satisfied customers. We've built more than just 
-                a marketplace – we've created an ecosystem where everyone wins.
-              </p>
-              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-                Today, we continue to innovate and improve, always putting our community first. 
-                Our mission is to empower entrepreneurs, reward affiliates, and provide customers 
-                with the best shopping experience possible.
-              </p>
+ <section className="py-20 px-4 sm:px-8 bg-gradient-to-br from-gray-10 via-white to-purple-10 dark:from-gray-200 dark:via-gray-200 dark:to-gray-200 transition-all duration-500">
+
+  <div className="space-y-20">
+
+    {sections.map((item, index) => {
+      const isReverse = index % 2 !== 0;
+
+      return (
+        <div
+          key={index}
+          className="grid md:grid-cols-5 gap-10 items-center w-full"
+        >
+
+          {/* TEXT */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className={`md:col-span-3 ${
+              isReverse ? "md:order-2" : ""
+            } bg-white/80 dark:bg-gray-800/70 backdrop-blur-xl p-8 sm:p-12 rounded-3xl shadow-2xl border border-white/30`}
+          >
+           <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-4 tracking-wide">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  drop-shadow-sm">
+    {item.title}
+  </span>
+
+</h2>
+
+<div className="w-24 h-1.5 
+bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+mb-6 rounded-full shadow-md"></div>
+
+            <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+              {item.text}
+            </p>
+
+            {/* <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold shadow-lg hover:scale-105 transition duration-300">
+              Explore More →
+            </button> */}
+          </motion.div>
+
+          {/* IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: isReverse ? 80 : -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className={`md:col-span-2 relative ${
+              isReverse ? "md:order-1" : ""
+            }`}
+          >
+            <div className="relative group">
+
+              {/* Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+
+              {/* Image */}
+              <img
+                src={item.img}
+                alt=""
+                className="relative rounded-3xl w-full h-[260px] sm:h-[320px] object-cover shadow-2xl transform group-hover:scale-105 transition duration-500"
+              />
             </div>
-          </div>
+          </motion.div>
+
+        </div>
+      );
+    })}
+
+  </div>
+</section>
         </div>
       </div>
 
@@ -347,11 +477,29 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-                WHY US
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 px-4">Why Shop With Us?</h2>
+  <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white text-xs sm:text-sm font-black 
+  px-4 sm:px-5 py-2 
+  rounded-full shadow-lg 
+  hover:shadow-orange-500/30 
+  transition-all duration-300 tracking-wider">
+    WHY US
+  </span>
+</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] tracking-wide">
+    Why Shop With Us?
+  </span>
+
+  <div className="h-1 w-24 mx-auto mt-3 
+  rounded-full bg-gradient-to-r 
+  from-orange-400 via-orange-500 to-[#3F322C] shadow-md">
+  </div>
+
+</h2>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto items-center">
@@ -365,7 +513,7 @@ const About = () => {
               />
               <div className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white rounded-2xl shadow-xl p-3 sm:p-4 md:p-6 border-2 sm:border-4 border-purple-100">
                 <div className="flex items-center space-x-2 sm:space-x-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-black to-emerald-500 rounded-full flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
@@ -383,9 +531,14 @@ const About = () => {
                   key={index}
                   className="group flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4 bg-gradient-to-br from-white to-purple-50/30 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-x-2 border border-purple-100"
                 >
-                  <div className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform`}>
-                    {item.icon}
-                  </div>
+                 {/* Icon */}
+  <div className="w-14 h-14 flex items-center justify-center 
+  rounded-xl 
+  bg-gradient-to-r from-orange-400 to-[#3F322C] 
+  text-white shadow-md">
+    {item.icon}
+  </div>
+
                   <div className="flex-1">
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{item.title}</h3>
                     <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.description}</p>
@@ -398,15 +551,43 @@ const About = () => {
       </div>
 
       {/* Features Grid */}
-      <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 sm:py-20">
+      <div className="bg-gradient-to-br from-bl
+      ue-50 via-purple-50 to-pink-50 py-16 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
-              <span className="bg-white text-purple-600 text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg border border-purple-200">
-                WHY CHOOSE US
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 px-4">What Makes Us Special</h2>
+<div className="inline-block mb-4">
+  <span className="bg-white 
+  text-xs sm:text-sm font-bold 
+  px-4 sm:px-5 py-2 
+  rounded-full shadow-lg 
+  border border-orange-300 
+  hover:shadow-orange-300/40 
+  transition-all duration-300">
+
+    <span className="bg-clip-text text-transparent 
+    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+    tracking-wide">
+      WHY CHOOSE US
+    </span>
+
+  </span>
+</div>
+           <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  drop-shadow-sm">
+    What Makes Us Special
+  </span>
+
+  <div className="h-1 w-28 mx-auto mt-3 
+  rounded-full bg-gradient-to-r 
+  from-orange-400 via-orange-500 to-[#3F322C] 
+  shadow-md">
+  </div>
+
+</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {features.map((feature, index) => (
@@ -415,9 +596,17 @@ const About = () => {
                 className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100"
               >
                 <div className="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white shadow-lg">
-                    {feature.icon}
-                  </div>
+                 <div className="flex-shrink-0 
+w-10 h-10 sm:w-12 sm:h-12 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+rounded-xl flex items-center justify-center 
+text-white shadow-lg 
+hover:shadow-orange-400/40 
+transition-all duration-300">
+
+  {feature.icon}
+
+</div>
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-800 mb-1 text-sm sm:text-base md:text-lg">{feature.title}</h3>
                     <p className="text-xs sm:text-sm text-gray-600">{feature.description}</p>
@@ -434,37 +623,94 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-                MILESTONES
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 sm:mb-6 px-4">Our Journey</h2>
+  <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white text-xs sm:text-sm font-bold 
+  px-3 sm:px-4 py-1.5 sm:py-2 
+  rounded-full shadow-lg tracking-wide">
+    MILESTONES
+  </span>
+</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  drop-shadow-sm">
+    Our Journey
+  </span>
+
+  <div className="h-1 w-24 mx-auto mt-3 
+  rounded-full bg-gradient-to-r 
+  from-orange-400 via-orange-500 to-[#3F322C] 
+  shadow-md">
+  </div>
+
+</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Key milestones in our growth story
             </p>
           </div>
 
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {milestones.map((milestone, index) => (
-                <div
-                  key={index}
-                  className="relative bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100"
-                >
-                  <div className="absolute -top-4 left-6 bg-gradient-to-br from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full font-bold shadow-lg text-sm">
-                    {milestone.year}
-                  </div>
-                  <div className="mt-6">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">{milestone.title}</h3>
-                    <p className="text-gray-600 text-sm">{milestone.description}</p>
-                  </div>
-                  {index < milestones.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+       <div className="max-w-7xl mx-auto px-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {milestones.map((milestone, index) => (
+      <div
+        key={index}
+        className="group relative bg-white/70 backdrop-blur-lg rounded-3xl p-6 
+        shadow-md hover:shadow-2xl 
+        hover:shadow-orange-200 
+        transition-all duration-500 
+        border border-orange-100 
+        hover:-translate-y-3"
+      >
+        
+        {/* Year Badge */}
+        <div className="absolute -top-5 left-6 
+        bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+        text-white px-5 py-1.5 
+        rounded-full text-sm font-semibold 
+        shadow-lg group-hover:scale-105 transition">
+          {milestone.year}
+        </div>
+
+        {/* Content */}
+        <div className="mt-8">
+          
+          <h3 className="text-xl font-bold mb-3 
+          bg-clip-text text-transparent 
+          bg-gradient-to-r from-orange-400 to-[#3F322C]">
+            {milestone.title}
+          </h3>
+
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {milestone.description}
+          </p>
+
+        </div>
+
+        {/* Glow Effect */}
+        <div className="absolute inset-0 rounded-3xl 
+        bg-gradient-to-r 
+        from-orange-400/0 to-[#3F322C]/0 
+        group-hover:from-orange-400/10 
+        group-hover:to-[#3F322C]/10 
+        transition duration-500">
+        </div>
+
+{/* Line Connector */}
+{index < milestones.length - 1 && (
+  <div
+    className="hidden lg:block absolute 
+    top-1/2 left-full 
+    -translate-y-1/2 
+    w-20 h-[3px] 
+    bg-gradient-to-r from-orange-400 to-[#3F322C]"
+  ></div>
+)}
+      </div>
+    ))}
+  </div>
+</div>
         </div>
       </div>
 
@@ -472,12 +718,31 @@ const About = () => {
       <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
-              <span className="bg-white text-purple-600 text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg border border-purple-200">
-                OUR VALUES
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 sm:mb-6 px-4">What We Stand For</h2>
+         <div className="inline-block mb-4">
+  <span className="bg-gradient-to-r 
+  from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white text-xs sm:text-sm font-bold 
+  px-3 sm:px-4 py-1.5 sm:py-2 
+  rounded-full shadow-lg tracking-wide">
+    OUR VALUES
+  </span>
+</div>
+         <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="bg-clip-text text-transparent 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  drop-shadow-sm">
+    What We Stand For
+  </span>
+
+  <div className="h-1 w-28 mx-auto mt-3 
+  rounded-full bg-gradient-to-r 
+  from-orange-400 via-orange-500 to-[#3F322C] 
+  shadow-md">
+  </div>
+
+</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               The principles that guide everything we do
             </p>
@@ -489,9 +754,18 @@ const About = () => {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl ${value.color} mb-4 sm:mb-6 shadow-lg`}>
-                  {value.icon}
-                </div>
+               <div className="inline-flex items-center justify-center 
+w-16 h-16 sm:w-20 sm:h-20 
+rounded-2xl 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+mb-4 sm:mb-6 shadow-lg 
+text-white 
+hover:shadow-orange-300/40 
+transition-all duration-300">
+
+  {value.icon}
+
+</div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{value.description}</p>
               </div>
@@ -504,18 +778,63 @@ const About = () => {
       <div className="bg-white py-16 sm:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-                ACHIEVEMENTS
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 px-4">Our Impact</h2>
+           <div className="inline-block mb-4">
+  <span className="
+    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+    text-white
+    text-xs sm:text-sm font-bold
+    px-4 sm:px-6 py-2
+    rounded-full
+    shadow-lg
+    border border-orange-300/40
+    backdrop-blur-md
+    hover:scale-105
+    transition-all duration-300">
+    
+    ACHIEVEMENTS
+
+  </span>
+</div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="
+    bg-clip-text text-transparent 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    drop-shadow-sm">
+    
+    Our Impact
+
+  </span>
+
+  <div className="
+    h-1 w-24 mx-auto mt-3 
+    rounded-full 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    shadow-md">
+  </div>
+
+</h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <div className="group bg-gradient-to-br from-white to-purple-50/30 rounded-2xl shadow-lg p-6 sm:p-8 text-center transform hover:scale-105 transition-all duration-300 border border-purple-100 hover:shadow-2xl">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Package className="w-8 h-8" />
-              </div>
+             <div className="
+inline-flex items-center justify-center 
+w-14 h-14 sm:w-16 sm:h-16 
+rounded-full 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+text-white 
+mb-4 
+shadow-lg 
+group-hover:scale-110 
+group-hover:shadow-orange-400/40
+transition-all duration-300">
+
+  <Package className="w-7 h-7 sm:w-8 sm:h-8" />
+
+</div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2">
                 <AnimatedCounter end={1} duration={2500} suffix="M+" />
               </h3>
@@ -523,9 +842,21 @@ const About = () => {
             </div>
             
             <div className="group bg-gradient-to-br from-white to-purple-50/30 rounded-2xl shadow-lg p-6 sm:p-8 text-center transform hover:scale-105 transition-all duration-300 border border-purple-100 hover:shadow-2xl">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <ThumbsUp className="w-8 h-8" />
-              </div>
+             <div className="
+inline-flex items-center justify-center 
+w-14 h-14 sm:w-16 sm:h-16 
+rounded-full 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+text-white 
+mb-4 
+shadow-lg 
+group-hover:scale-110 
+group-hover:shadow-orange-400/40
+transition-all duration-300">
+
+  <ThumbsUp className="w-7 h-7 sm:w-8 sm:h-8" />
+
+</div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2">
                 <AnimatedCounter end={4.9} duration={2500} decimals={1} />/5
               </h3>
@@ -533,9 +864,21 @@ const About = () => {
             </div>
             
             <div className="group bg-gradient-to-br from-white to-purple-50/30 rounded-2xl shadow-lg p-6 sm:p-8 text-center transform hover:scale-105 transition-all duration-300 border border-purple-100 hover:shadow-2xl">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Globe className="w-8 h-8" />
-              </div>
+              <div className="
+inline-flex items-center justify-center 
+w-14 h-14 sm:w-16 sm:h-16 
+rounded-full 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+text-white 
+mb-4 
+shadow-lg 
+group-hover:scale-110 
+group-hover:shadow-orange-400/40
+transition-all duration-300">
+
+  <Globe className="w-7 h-7 sm:w-8 sm:h-8" />
+
+</div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2">
                 <AnimatedCounter end={15} duration={2500} suffix="+" />
               </h3>
@@ -543,9 +886,21 @@ const About = () => {
             </div>
             
             <div className="group bg-gradient-to-br from-white to-purple-50/30 rounded-2xl shadow-lg p-6 sm:p-8 text-center transform hover:scale-105 transition-all duration-300 border border-purple-100 hover:shadow-2xl">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Headphones className="w-8 h-8" />
-              </div>
+              <div className="
+inline-flex items-center justify-center 
+w-14 h-14 sm:w-16 sm:h-16 
+rounded-full 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+text-white 
+mb-4 
+shadow-lg 
+group-hover:scale-110 
+group-hover:shadow-orange-400/40
+transition-all duration-300">
+
+  <Headphones className="w-7 h-7 sm:w-8 sm:h-8" />
+
+</div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2">24/7</h3>
               <p className="text-gray-600 font-medium text-xs sm:text-sm">Support</p>
             </div>
@@ -557,12 +912,48 @@ const About = () => {
       <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block mb-4">
-              <span className="bg-white text-purple-600 text-xs sm:text-sm font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg border border-purple-200">
-                TESTIMONIALS
-              </span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-800 mb-4 sm:mb-6 px-4">What People Say</h2>
+           <div className="inline-block mb-4">
+  <span className="
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C]
+    text-white
+    text-xs sm:text-sm
+    font-bold
+    px-4 sm:px-6
+    py-2
+    rounded-full
+    border border-orange-300/40
+    shadow-lg
+    backdrop-blur-md
+    hover:scale-105
+    transition-all duration-300">
+    
+    TESTIMONIALS
+
+  </span>
+</div>
+           <h2 className="text-3xl sm:text-4xl md:text-5xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="
+    bg-clip-text text-transparent 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    drop-shadow-sm">
+    
+    What People Say
+
+  </span>
+
+  <div className="
+    h-1 w-28 mx-auto mt-3 
+    rounded-full 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    shadow-md">
+  </div>
+
+</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Real stories from our amazing community
             </p>
@@ -606,7 +997,7 @@ const About = () => {
       </div>
 
       {/* Team Section */}
-      <div className="bg-white py-16 sm:py-20 md:py-24">
+      {/* <div className="bg-white py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block mb-4">
@@ -643,7 +1034,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* CTA Section */}
       <div className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 text-gray-800 py-16 sm:py-20 md:py-24 overflow-hidden">
@@ -655,40 +1046,114 @@ const About = () => {
         </div>
         
         <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="inline-flex items-center bg-purple-100 backdrop-blur-md rounded-full px-3 sm:px-5 py-1.5 sm:py-2 mb-6 sm:mb-8 border border-purple-200 shadow-lg">
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 animate-pulse text-purple-600" />
-            <span className="text-xs sm:text-sm font-semibold text-purple-700">Join Us Today</span>
-          </div>
+        <div className="
+inline-flex items-center 
+bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+rounded-full 
+px-4 sm:px-6 py-2.5
+mb-6 sm:mb-8 
+shadow-lg 
+border border-orange-300/40
+backdrop-blur-md
+text-white
+hover:scale-105
+transition-all duration-300">
+
+  <Sparkles className="w-4 h-4 mr-2 animate-pulse text-white" />
+
+  <span className="text-xs sm:text-sm font-semibold">
+    Join Us Today
+  </span>
+
+</div>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-gray-900 px-4">
-            Join Our Growing Community
-          </h2>
+         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
+font-extrabold mb-6 px-4 text-center tracking-wide">
+
+  <span className="
+    bg-clip-text text-transparent 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    drop-shadow-sm">
+    
+    Join Our Growing Community
+
+  </span>
+
+  <div className="
+    h-1 w-32 mx-auto mt-3 
+    rounded-full 
+    bg-gradient-to-r 
+    from-orange-400 via-orange-500 to-[#3F322C] 
+    shadow-md">
+  </div>
+
+</h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 sm:mb-10 max-w-2xl mx-auto px-4 leading-relaxed">
             Whether you're a vendor, affiliate, or customer, there's a place for you here.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 px-4">
-            <Link
-              to="/vendor/register"
-              className="group relative bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                Start Selling
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </Link>
-            <Link
-              to="/affiliate/register"
-              className="bg-white border-2 border-purple-300 text-purple-600 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
-            >
-              Become an Affiliate
-            </Link>
-            <Link
-              to="/register"
-              className="bg-white border-2 border-purple-300 text-purple-600 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-purple-50 hover:border-purple-400 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
-            >
-              Shop Now
-            </Link>
+           <Link
+  to="/vendor/register"
+  className="group relative 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C] 
+  text-white 
+  px-6 sm:px-8 py-3.5 sm:py-4 
+  rounded-full 
+  font-bold text-base sm:text-lg 
+  hover:shadow-orange-400/40 
+  hover:scale-105
+  transition-all duration-300 
+  inline-flex items-center justify-center 
+  overflow-hidden"
+>
+  <span className="relative z-10 flex items-center">
+    Start Selling
+    <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
+  </span>
+
+  <div className="
+    absolute inset-0 
+    bg-gradient-to-r from-orange-500 to-[#3F322C] 
+    opacity-0 group-hover:opacity-100 
+    transition-opacity duration-300">
+  </div>
+</Link>
+           <Link
+  to="/affiliate/register"
+  className="
+  group relative
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+  text-white
+  px-6 sm:px-8 py-3.5 sm:py-4
+  rounded-full
+  font-bold text-base sm:text-lg
+  hover:scale-105
+  transition-all duration-300
+  inline-flex items-center justify-center
+  shadow-lg overflow-hidden"
+>
+  <span className="relative z-10">Become an Affiliate</span>
+  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-[#3F322C] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</Link>
+
+<Link
+  to="/register"
+  className="
+  group relative
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+  text-white
+  px-6 sm:px-8 py-3.5 sm:py-4
+  rounded-full
+  font-bold text-base sm:text-lg
+  hover:scale-105
+  transition-all duration-300
+  inline-flex items-center justify-center
+  shadow-lg overflow-hidden"
+>
+  <span className="relative z-10">Shop Now</span>
+  <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-[#3F322C] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</Link>
           </div>
         </div>
       </div>

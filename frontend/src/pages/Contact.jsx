@@ -100,25 +100,56 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-600 via-pink-600 to-red-600 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-2 mb-6 border border-white/30">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              <span className="text-sm font-bold">We're Here to Help</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-black mb-6">Get in Touch</h1>
-            <p className="text-xl text-gray-100 max-w-2xl mx-auto">
-              Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </p>
-          </div>
-        </div>
-      </section>
+      <section className="relative 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+text-white py-20 overflow-hidden">
+
+  {/* Background Glow */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
+  </div>
+
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="max-w-3xl mx-auto text-center">
+
+      {/* Badge */}
+      <div className="
+      inline-flex items-center 
+      bg-white/20 backdrop-blur-md 
+      rounded-full px-6 py-2 mb-6 
+      border border-orange-200/30 
+      shadow-lg">
+
+        <MessageSquare className="w-4 h-4 mr-2 text-white" />
+        <span className="text-sm font-bold">
+          We're Here to Help
+        </span>
+
+      </div>
+
+      {/* Heading */}
+      <h1 className="
+      text-5xl md:text-6xl 
+      font-black mb-6 
+      bg-clip-text text-transparent 
+      bg-gradient-to-r 
+      from-white via-orange-100 to-white">
+        Get in Touch
+      </h1>
+
+      {/* Description */}
+      <p className="
+      text-lg md:text-xl 
+      text-orange-100 
+      max-w-2xl mx-auto">
+        Have questions? We'd love to hear from you. 
+        Send us a message and we'll respond as soon as possible.
+      </p>
+
+    </div>
+  </div>
+</section>
 
       {/* Success Message */}
       {success && (
@@ -149,9 +180,21 @@ const Contact = () => {
                 href={info.link}
                 className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
               >
-                <div className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform`}>
-                  {info.icon}
-                </div>
+               <div className="
+w-14 h-14 
+bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
+rounded-2xl 
+flex items-center justify-center 
+text-white 
+mb-4 
+shadow-lg
+group-hover:scale-110 
+group-hover:rotate-6
+transition-all duration-300">
+
+  {info.icon}
+
+</div>
                 <h3 className="font-bold text-lg mb-2 text-gray-800">{info.title}</h3>
                 <p className="text-gray-600">{info.content}</p>
               </a>
@@ -250,23 +293,43 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  {loading ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </button>
+            <button
+  type="submit"
+  disabled={loading}
+  className="
+  group relative w-full
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+  text-white 
+  py-4 
+  rounded-xl 
+  font-bold text-lg 
+  transition-all duration-300 
+  hover:scale-105 
+  shadow-lg 
+  disabled:opacity-50 
+  disabled:cursor-not-allowed 
+  flex items-center justify-center overflow-hidden"
+>
+  <span className="relative z-10 flex items-center">
+    {loading ? (
+      <>
+        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+        Sending...
+      </>
+    ) : (
+      <>
+        <Send className="w-5 h-5 mr-2" />
+        Send Message
+      </>
+    )}
+  </span>
+
+  <div className="
+  absolute inset-0 
+  bg-gradient-to-r from-orange-500 to-[#3F322C]
+  opacity-0 group-hover:opacity-100 
+  transition-opacity duration-300 justify-center"></div>
+</button>
               </form>
             </div>
 

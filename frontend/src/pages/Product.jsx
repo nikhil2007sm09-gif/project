@@ -1277,16 +1277,31 @@ export default function Product() {
 
                   <div className="p-3 sm:p-4 md:p-6">
                     {/* Category */}
-                    <div className="mb-2 md:mb-3">
-                      <span className="inline-block bg-blue-100 text-blue-800 px-2 py-0.5 md:px-3 md:py-1 rounded-md text-[10px] md:text-xs font-medium">
-                        {product.category || 'Product'}
-                      </span>
-                    </div>
+                   <div className="mb-2 md:mb-3">
+  <span className="
+    inline-block
+    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+    text-white
+    px-3 py-1
+    rounded-full
+    text-[10px] md:text-xs
+    font-semibold
+    shadow-md
+    transition-all duration-300">
+    
+    {product.category || 'Product'}
+    
+  </span>
+</div>
 
-                    {/* Product Name */}
-                    <h3 className="font-semibold text-gray-800 mb-1 md:mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300 text-xs sm:text-sm md:text-base">
-                      {product.name}
-                    </h3>
+<h3 className="
+text-sm sm:text-base md:text-lg 
+font-bold 
+bg-clip-text text-transparent
+bg-gradient-to-r from-orange-500 to-[#3F322C]
+line-clamp-2">
+  {product.name}
+</h3>
 
                     {/* Rating and Likes */}
                     <div className="flex items-center justify-between mb-2 md:mb-3">
@@ -1314,24 +1329,71 @@ export default function Product() {
                     </div>
 
                     {/* Price */}
-                    <div className="flex items-center gap-1 md:gap-2 mb-2 md:mb-4">
-                      <span className="text-sm sm:text-lg md:text-2xl font-bold text-blue-600">
-                        ₹{product.price}
-                      </span>
-                      {product.originalPrice && product.originalPrice > product.price && (
-                        <span className="text-gray-400 line-through text-[10px] sm:text-xs md:text-sm">
-                          ₹{product.originalPrice}
-                        </span>
-                      )}
-                    </div>
+                  <div className="flex items-center gap-2 mb-2 md:mb-4">
+
+  <span className="
+    text-sm sm:text-lg md:text-2xl 
+    font-extrabold 
+    bg-clip-text text-transparent
+    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]">
+    
+    ₹{product.price}
+
+  </span>
+
+  {product.originalPrice && product.originalPrice > product.price && (
+    <>
+      <span className="
+        text-gray-400 
+        line-through 
+        text-[10px] sm:text-xs md:text-sm">
+        
+        ₹{product.originalPrice}
+        
+      </span>
+
+      <span className="
+        text-[10px] sm:text-xs 
+        font-semibold 
+        bg-orange-100 
+        text-orange-600 
+        px-2 py-0.5 
+        rounded-md">
+        Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
+      </span>
+    </>
+  )}
+
+</div>
 
                     {/* View Details Button */}
-                    <Link 
-                      to={`/product/${product._id}`}
-                      className="block w-full bg-blue-600 text-white py-1.5 sm:py-2 md:py-3 px-2 sm:px-3 md:px-4 rounded-md sm:rounded-lg md:rounded-xl text-center hover:bg-blue-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg text-xs sm:text-sm md:text-base"
-                    >
-                      View Details
-                    </Link>
+                 <Link 
+  to={`/product/${product._id}`}
+  className="
+  group relative block w-full 
+  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
+  text-white 
+  py-1.5 sm:py-2 md:py-3 
+  px-2 sm:px-3 md:px-4 
+  rounded-md sm:rounded-lg md:rounded-xl 
+  text-center 
+  font-medium 
+  shadow-lg 
+  overflow-hidden
+  hover:scale-105
+  transition-all duration-300 
+  text-xs sm:text-sm md:text-base"
+>
+  <span className="relative z-10">
+    View Details
+  </span>
+
+  <div className="
+  absolute inset-0 
+  bg-gradient-to-r from-orange-500 to-[#3F322C]
+  opacity-0 group-hover:opacity-100 
+  transition-opacity duration-300"></div>
+</Link>
                   </div>
                 </div>
               ))}

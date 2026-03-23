@@ -911,7 +911,7 @@ const Home = () => {
             </span>
           </div>
 
-          {/* Heading */}
+        
           <h3 className="text-3xl md:text-5xl font-black mb-4">
             Get 20% Off Your First Order!
           </h3>
@@ -920,7 +920,7 @@ const Home = () => {
             Subscribe to our newsletter for exclusive deals, early access to sales, and style inspiration
           </p>
 
-          {/* Input + Button */}
+          
           <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-8">
 
             <input
