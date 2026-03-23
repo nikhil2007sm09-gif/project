@@ -3,6 +3,7 @@ import { ShoppingBag, Users, TrendingUp, Award, Heart, Shield, Zap, Globe, Star,
 import { useState, useEffect } from 'react'
 import Story from "../img/clothe-ourstory-image.jpg";
 import { motion } from "framer-motion";
+import AboutSection from './About1';
 
 // Counter Animation Component
 const AnimatedCounter = ({ end, duration = 2000, suffix = '', decimals = 0 }) => {
@@ -995,7 +996,7 @@ font-extrabold mb-6 px-4 text-center tracking-wide">
           </div>
         </div>
       </div>
-
+  <AboutSection />
       {/* Team Section */}
       {/* <div className="bg-white py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
@@ -1158,6 +1159,7 @@ font-extrabold mb-6 px-4 text-center tracking-wide">
         </div>
       </div>
     </div>
+  
   )
 }
 
