@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
 import User from '../models/User.js'
+import config from '../config/config.js'
 
 export const authenticate = async (req, res, next) => {
   try {
@@ -8,7 +9,7 @@ export const authenticate = async (req, res, next) => {
       return res.status(401).json({ message: 'No token provided' })
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret')
+    const decoded = jwt.verify(token, config.jwtSecret)
     const user = await User.findById(decoded.id).select('-password')
     
     if (!user) {

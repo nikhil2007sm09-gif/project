@@ -6,13 +6,17 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "seed": "node seedData.js",
-    "create-users": "node createTestUser.js",
-    "seed-blogs": "node seedBlogData.js",
-    "test-email": "node testEmail.js",
-    "setup-email": "node setupEmail.js",
-    "check-affiliate": "node checkAffiliate.js",
-    "migrate-users": "node migrateUsers.js"
+    "seed": "node scripts/seedData.js",
+    "create-users": "node scripts/createTestUser.js",
+    "seed-blogs": "node scripts/seedBlogData.js",
+    "seed-testimonials": "node scripts/seedTestimonials.js",
+    "seed-sliders": "node scripts/seedSliders.js",
+    "test-email": "node scripts/testEmail.js",
+    "setup-email": "node scripts/setupEmail.js",
+    "check-affiliate": "node scripts/checkAffiliate.js",
+    "migrate-users": "node scripts/migrateUsers.js",
+    "test-archive": "node scripts/testArchive.js",
+    "test-stats": "node scripts/testStats.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -166,6 +166,8 @@ const Footer = () => {
                 </div>
               </div>
 
+              
+
               {/* Fast Delivery */}
               <div className="group">
                 <div className="bg-gradient-to-br from-orange-500 to-red-500 w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 relative">

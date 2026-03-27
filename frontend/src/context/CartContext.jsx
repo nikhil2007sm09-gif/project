@@ -4,6 +4,7 @@ export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false)
 
   useEffect(() => {
     const savedCart = localStorage.getItem('cart')
@@ -27,6 +28,8 @@ export const CartProvider = ({ children }) => {
     } else {
       setCart([...cart, { ...product, quantity, size }])
     }
+    // Auto-open cart drawer when item is added
+    setIsCartDrawerOpen(true)
   }
 
   const removeFromCart = (productId, size) => {
@@ -53,8 +56,26 @@ export const CartProvider = ({ children }) => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0)
   }
 
+  const openCartDrawer = () => {
+    setIsCartDrawerOpen(true)
+  }
+
+  const closeCartDrawer = () => {
+    setIsCartDrawerOpen(false)
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, getTotal }}>
+    <CartContext.Provider value={{ 
+      cart, 
+      addToCart, 
+      removeFromCart, 
+      updateQuantity, 
+      clearCart, 
+      getTotal,
+      isCartDrawerOpen,
+      openCartDrawer,
+      closeCartDrawer
+    }}>
       {children}
     </CartContext.Provider>
   )

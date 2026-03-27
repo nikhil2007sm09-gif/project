@@ -6,7 +6,7 @@ import { CartContext } from '../context/CartContext'
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext)
-  const { cart } = useContext(CartContext)
+  const { cart, openCartDrawer } = useContext(CartContext)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const userMenuRef = useRef(null)
@@ -124,14 +124,17 @@ const Navbar = () => {
           {/* Right Side Icons */}
           <div className="flex items-center space-x-2 md:space-x-4">
             {/* Cart Icon */}
-            <Link to="/cart" className="relative p-2 hover:bg-purple-50 rounded-full transition-all duration-300 group" onClick={closeMobileMenu}>
+            <button 
+              onClick={() => cart.length > 0 ? openCartDrawer() : null} 
+              className="relative p-2 hover:bg-purple-50 rounded-full transition-all duration-300 group"
+            >
               <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-gray-700 group-hover:text-yellow-600 transition-colors" />
               {cart.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-gradient-to-r from-pink-500 to-yellow-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold shadow-lg animate-pulse">
                   {cart.length}
                 </span>
               )}
-            </Link>
+            </button>
             
             {/* User Menu - Desktop */}
             {user ? (
@@ -233,6 +236,26 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-purple-100 py-4 space-y-1 bg-gradient-to-b from-purple-50/50 to-white rounded-b-2xl">
+            {/* Cart Button - Mobile */}
+            <button 
+              onClick={() => {
+                if (cart.length > 0) {
+                  openCartDrawer()
+                }
+                closeMobileMenu()
+              }}
+              className="flex items-center justify-between w-full px-4 py-2.5 hover:bg-purple-100 rounded-lg transition-all duration-200 text-gray-700 hover:text-purple-600 font-semibold mx-2"
+            >
+              <span className="flex items-center gap-2">
+                🛒 Shopping Cart
+                {cart.length > 0 && (
+                  <span className="bg-purple-600 text-white rounded-full px-2 py-1 text-xs font-bold">
+                    {cart.length}
+                  </span>
+                )}
+              </span>
+            </button>
+            
             {/* Navigation Links */}
             <Link 
               to="/" 
@@ -249,7 +272,7 @@ const Navbar = () => {
               ℹ️ About
             </Link>
             <Link 
-              to="/ Product" 
+              to="/products" 
               className="block px-4 py-2.5 hover:bg-purple-100 rounded-lg transition-all duration-200 text-gray-700 hover:text-purple-600 font-semibold mx-2"
               onClick={closeMobileMenu}
             >
@@ -341,7 +364,7 @@ const Navbar = () => {
                 <div className="border-t border-purple-200 my-2 mx-2"></div>
                 <Link 
                   to="/login" 
-                  className="block mx-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-3 rounded-full hover:shadow-xl transition-all duration-300 text-center font-bold"
+                  className="block mx-4  bg-gradient-to-r from-[#DB8B37] to-black text-white  px-4 py-3 rounded-full hover:shadow-xl transition-all duration-300 text-center font-bold"
                   onClick={closeMobileMenu}
                 >
                   Login
