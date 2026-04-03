@@ -572,6 +572,33 @@ export default function Product() {
       icon: cat.icon || '📦'
     }))
   ]
+  const team = [
+  {
+    name: "Faizan Ayubi",
+    role: "Co-Founder & CEO",
+    desc: "A supportive team is the foundation of a successful company. At Trackier, we foster an environment where respect, collaboration, and growth come naturally.",
+    img: "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    name: "Udit Verma",
+    role: "Co-Founder & CMO",
+    desc: "Understanding ‘why’ before taking action helps us serve our customers better. We strive to anticipate their needs and deliver solutions that exceed expectations.",
+    img: "https://randomuser.me/api/portraits/men/44.jpg"
+  },
+  {
+    name: "Mukul Kaushik",
+    role: "Chief Revenue Officer",
+    desc: "A growth mindset is essential in today’s fast paced world. We encourage our team to keep learning, adapting, and striving for excellence this is a my .",
+    img: "https://randomuser.me/api/portraits/men/46.jpg"
+  },
+  {
+    name: "Abhay Chauhan",
+    role: "Chief Technology Officer",
+    desc: "Technology should make work easier, not complicated. At Trackier, we focus on building reliable systems that help teams work faster and smarter this is my rhe.",
+    img: "https://randomuser.me/api/portraits/men/50.jpg"
+  }
+];
+
 
   if (loading) {
     return (
@@ -711,12 +738,14 @@ export default function Product() {
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 fill-white" />
             <div className="flex flex-col items-center">
-              <span className="font-bold text-sm">{wishlist.length}</span>
+              <span className="font-bold text-sm AL">{wishlist.length}</span>
               <span className="text-[10px] opacity-90">Liked</span>
             </div>
           </div>
         </div>
       )}
+
+
 
       {/* Hero Slider - Enhanced Design */}
       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -2032,8 +2061,68 @@ line-clamp-2">
             </div>
           </div>
         )}
+<div className="bg-[#f3f6fb] py-24 px-6">
+  
+  {/* Heading */}
+  <div className="text-center max-w-2xl mx-auto mb-20">
+    <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
+      Our Values Define Us
+    </h2>
+    <p className="text-gray-500 text-lg">
+      Meet our amazing team who bring ideas to life with passion and creativity.
+    </p>
+  </div>
+
+  {/* Cards */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
+    
+    {team.map((member, index) => (
+      <div 
+        key={index} 
+        className="group bg-white rounded-3xl pt-16 pb-8 px-6 text-center shadow-md hover:shadow-2xl transition-all duration-300 relative"
+      >
+        
+        {/* Image */}
+        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+          <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden group-hover:scale-110 transition">
+            <img
+              src={member.img}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+
+        
+
+        {/* Content */}
+        <div className="mt-6 space-y-3">
+          <h3 className="text-xl font-semibold text-gray-800">
+            {member.name}
+          </h3>
+
+          <p className="text-indigo-500 font-medium">
+            {member.role}
+          </p>
+
+          <p className="text-gray-500 text-sm leading-relaxed">
+            {member.desc}
+          </p>
+        </div>
+
+        {/* Hover Bottom Bar */}
+        <div className="absolute bottom-0 left-0 w-0 h-1 bg-indigo-500 transition-all duration-300 group-hover:w-full rounded-b-3xl"></div>
+
+      </div>
+    ))}
+
+  </div>
+</div>
+
 
         <FurnitureSection/>
+
+
       </div>
       <style jsx>{`
         .line-clamp-2 {

@@ -112,7 +112,7 @@ const VendorRegister = () => {
           <div className="p-6 md:p-8 flex flex-col justify-center bg-gradient-to-br from-white to-purple-50/30 max-h-[90vh] overflow-y-auto">
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 mb-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
                   <Store className="h-5 w-5 text-white" />
                 </div>
               </div>

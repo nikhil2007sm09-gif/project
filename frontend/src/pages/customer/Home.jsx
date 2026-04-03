@@ -312,22 +312,22 @@ const Home = () => {
       <section className="relative bg-[#FEF7F1] text-gray-800 overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-white opacity-50"></div>
-        <div className="absolute inset-0 overflow-hidden">
+        {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-20 md:-top-40 -left-20 md:-left-40 w-48 h-48 md:w-96 md:h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
           <div className="absolute top-0 -right-20 md:-right-40 w-48 h-48 md:w-96 md:h-96 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
           <div className="absolute -bottom-20 md:-bottom-40 left-1/4 md:left-1/3 w-48 h-48 md:w-96 md:h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
+        </div> */}
 
         {/* Floating Elements - Hidden on mobile for cleaner look */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
           <div className="absolute top-20 left-10 animate-float">
-            <div className="w-16 h-16 bg-purple-200/30 backdrop-blur-sm rounded-2xl rotate-12"></div>
+            <div className="w-16 h-16 backdrop-blur-sm rounded-2xl rotate-12"></div>
           </div>
           <div className="absolute top-40 right-20 animate-float animation-delay-2000">
-            <div className="w-20 h-20 bg-pink-200/30 backdrop-blur-sm rounded-full"></div>
+            <div className="w-20 h-20 backdrop-blur-sm rounded-full"></div>
           </div>
           <div className="absolute bottom-32 left-1/4 animate-float animation-delay-4000">
-            <div className="w-12 h-12 bg-blue-200/30 backdrop-blur-sm rounded-lg -rotate-12"></div>
+            <div className="w-12 h-12 backdrop-blur-sm rounded-lg -rotate-12"></div>
           </div>
         </div>
 
