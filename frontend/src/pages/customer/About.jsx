@@ -3,6 +3,7 @@ import { ShoppingBag, Users, TrendingUp, Award, Heart, Shield, Zap, Globe, Star,
 import { useState, useEffect } from 'react'
 import Story from "../../img/clothe-ourstory-image.jpg";
 import { motion } from "framer-motion";
+import TeamSection from '../../components/TeamSection'
 
 
 // Counter Animation Component
@@ -1158,6 +1159,9 @@ font-extrabold mb-6 px-4 text-center tracking-wide">
           </div>
         </div>
       </div>
+
+      {/* Team Section */}
+      <TeamSection />
     </div>
   
   )

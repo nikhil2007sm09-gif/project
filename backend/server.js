@@ -20,6 +20,7 @@ import archiveRoutes from './routes/archive.js'
 import testimonialRoutes from './routes/testimonials.js'
 import statsRoutes from './routes/stats.js'
 import sliderRoutes from './routes/sliders.js'
+import teamRoutes from './routes/team.js'
 import connectDB from './config/db.js'
 import config from './config/config.js'
 
@@ -53,6 +54,7 @@ app.use('/api/archive', archiveRoutes)
 app.use('/api/stats', statsRoutes)
 app.use('/api/testimonials', testimonialRoutes)
 app.use('/api/sliders', sliderRoutes)
+app.use('/api/team', teamRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: 'ClothesShop API' })

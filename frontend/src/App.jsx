@@ -42,6 +42,7 @@ import ShippingDelivery from './pages/customer/ShippingDelivery'
 import CancellationRefund from './pages/customer/CancellationRefund'
 import AdminTestimonials from './pages/admin/AdminTestimonials'
 import AdminSliders from './pages/admin/AdminSliders'
+import AdminTeam from './pages/admin/AdminTeam'
 import Product from './pages/customer/Product'
 
 function AffiliateTracker() {
@@ -167,6 +168,14 @@ function AppContent() {
               element={
                 <ProtectedRoute allowedRoles={['admin']}>
                   <AdminSliders />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/team" 
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminTeam />
                 </ProtectedRoute>
               } 
             />

@@ -4,6 +4,7 @@ import { ShoppingBag, Truck, Shield, Star, TrendingUp, Award, Users, ArrowRight,
 import axios from '../../utils/axios'
 import FashionApproach from '../../components/FashionApproach'
 import OfferSlide from './OfferSlider'
+import TeamSlider from '../../components/TeamSlider'
 
 
 
@@ -1188,6 +1189,9 @@ const Home = () => {
     </div>
   </div>
 </section>
+
+      {/* Team Slider */}
+      <TeamSlider />
     </div>
   )
 }

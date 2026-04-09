@@ -4,6 +4,7 @@ import { Heart, ShoppingCart, Star, Eye, Filter, Search, X, ChevronDown, Share2 
 import { CartContext } from '../../context/CartContext'
 import { generateShareLinks, getStoredAffiliateCode } from '../../utils/affiliateTracker'
 import FurnitureSection from './Vedio'
+import TeamSection from '../../components/TeamSection'
 
 export default function Product() {
   const [products, setProducts] = useState([])
@@ -2182,6 +2183,9 @@ line-clamp-2">
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
       `}</style>
+      
+      {/* Team Section */}
+      <TeamSection />
     </div>
   )
 }

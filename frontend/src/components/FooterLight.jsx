@@ -300,7 +300,7 @@ const Footer = () => {
 
             {/* Contact & Business */}
             <div>
-              <h4 className="text-lg font-bold mb-6 text-gray-800 relative">
+              <h4 className="text-lg font-bold mb-60 text-gray-800 relative">
                 Get In Touch
                 <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
               </h4>
@@ -377,7 +377,7 @@ const Footer = () => {
                       href={social.href}
                       className={`bg-gradient-to-br ${social.color} p-2 rounded-lg hover:scale-110 transition-transform duration-300 shadow-lg`}
                     >
-                      <social.icon className="w-4 h-4 text-white" />
+                      <social.icon className="w-4 h-4 text-white "  />
                     </a>
                   ))}
                 </div>

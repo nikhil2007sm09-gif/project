@@ -155,6 +155,7 @@ const AdminDashboard = () => {
   ]
 
   const quickLinks = [
+    { to: '/admin/team', label: 'Team', icon: Users },
     { to: '/admin/categories', label: 'Categories', icon: Grid },
     { to: '/admin/sizes', label: 'Sizes', icon: Ruler },
     { to: '/admin/colors', label: 'Colors', icon: Palette },
