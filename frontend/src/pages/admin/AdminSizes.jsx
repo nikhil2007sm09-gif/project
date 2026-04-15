@@ -122,7 +122,7 @@ const AdminSizes = () => {
               </div>
 
               <div>
-                <label className="block font-semibold text-gray-700 mb-2 flex items-center">
+                <label className="font-semibold text-gray-700 mb-2 flex items-center">
                   <ArrowUpDown className="w-4 h-4 mr-2" />
                   Display Order
                 </label>

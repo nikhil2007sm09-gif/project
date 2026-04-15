@@ -19,7 +19,7 @@ const Cart = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
         <div className="lg:col-span-2">
           {cart.map(item => {
             // Get display image from images array or fallback to image field

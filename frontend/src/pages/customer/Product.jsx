@@ -544,26 +544,6 @@ export default function Product() {
   }
 
   // Handle share
-  const handleShare = (product) => {
-    setShareModal({ show: true, product })
-  }
-
-  // Handle share link click
-  const handleShareLink = (platform, product) => {
-    const productUrl = `${window.location.origin}/product/${product._id}`
-    const affiliateCode = getStoredAffiliateCode()
-    const shareLinks = generateShareLinks(productUrl, product.name, affiliateCode)
-    
-    if (platform === 'copy') {
-      navigator.clipboard.writeText(shareLinks.copy)
-      showNotification('Link copied to clipboard!', 'success')
-      setShareModal({ show: false, product: null })
-    } else {
-      window.open(shareLinks[platform], '_blank')
-      setShareModal({ show: false, product: null })
-    }
-  }
-
   // Updated category options for sidebar filter
   const categoryOptions = [
     { value: 'all', label: 'All Categories', icon: '🌟' },
@@ -1292,22 +1272,19 @@ export default function Product() {
                         <Eye className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-blue-500" />
                       </button>
                       <button 
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleShare(product)
-                        }}
-                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
-                        title="Share Product"
-                      >
-                        <Share2 className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-purple-500" />
-                      </button>
-                      <button 
                         onClick={() => handleAddToCart(product)}
                         className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
                         title="Add to Cart"
                       >
                         <ShoppingCart className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-green-500" />
                       </button>
+                      <Link
+                        to={`/product/${product._id}/share`}
+                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
+                        title="Share Product"
+                      >
+                        <Share2 className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-purple-500" />
+                      </Link>
                     </div>
                     {/* Stock Badge - Bottom Right */}
                     <div className="absolute bottom-2 right-2">
@@ -2062,63 +2039,7 @@ line-clamp-2">
             </div>
           </div>
         )}
-<div className="bg-[#f3f6fb] py-24 px-6">
-  
-  {/* Heading */}
-  <div className="text-center max-w-2xl mx-auto mb-20">
-    <h2 className="text-4xl md:text-5xl font-bold text-[#0f172a] mb-4">
-      Our Values Define Us
-    </h2>
-    <p className="text-gray-500 text-lg">
-      Meet our amazing team who bring ideas to life with passion and creativity.
-    </p>
-  </div>
 
-  {/* Cards */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
-    
-    {team.map((member, index) => (
-      <div 
-        key={index} 
-        className="group bg-white rounded-3xl pt-16 pb-8 px-6 text-center shadow-md hover:shadow-2xl transition-all duration-300 relative"
-      >
-        
-        {/* Image */}
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
-          <div className="w-24 h-24 rounded-full border-4 border-white shadow-lg overflow-hidden group-hover:scale-110 transition">
-            <img
-              src={member.img}
-              alt={member.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
-        
-
-        {/* Content */}
-        <div className="mt-6 space-y-3">
-          <h3 className="text-xl font-semibold text-gray-800">
-            {member.name}
-          </h3>
-
-          <p className="text-indigo-500 font-medium">
-            {member.role}
-          </p>
-
-          <p className="text-gray-500 text-sm leading-relaxed">
-            {member.desc}
-          </p>
-        </div>
-
-        {/* Hover Bottom Bar */}
-        <div className="absolute bottom-0 left-0 w-0 h-1 bg-indigo-500 transition-all duration-300 group-hover:w-full rounded-b-3xl"></div>
-
-      </div>
-    ))}
-
-  </div>
-</div>
 
 
         <FurnitureSection/>

@@ -44,6 +44,7 @@ import AdminTestimonials from './pages/admin/AdminTestimonials'
 import AdminSliders from './pages/admin/AdminSliders'
 import AdminTeam from './pages/admin/AdminTeam'
 import Product from './pages/customer/Product'
+import ProductShare from './pages/customer/ProductShare'
 
 function AffiliateTracker() {
   useEffect(() => {
@@ -82,6 +83,7 @@ function AppContent() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/products" element={<Product />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/product/:id/share" element={<ProductShare />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />

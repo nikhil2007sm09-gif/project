@@ -16,12 +16,12 @@ export default function TeamSlider() {
       const response = await fetch('http://localhost:5000/api/team')
       if (response.ok) {
         const data = await response.json()
-        // Limit to 10 team members
+        
         setTeam(data.slice(0, 10))
       }
     } catch (error) {
       console.error('Error fetching team:', error)
-      // Default team data
+      
       setTeam([
         {
           _id: '1',
