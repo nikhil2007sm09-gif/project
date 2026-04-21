@@ -1652,13 +1652,13 @@ line-clamp-2">
                               </div>
                               
                               {/* Product Name */}
-                              <h3 className="font-medium text-gray-800 mb-2 line-clamp-2 text-sm hover:text-blue-600 transition-colors cursor-pointer">
+                              <h3 className="font-medium text-gray-800 mb-2 line-clamp-2 text-sm hover:text-[#0B2239] transition-colors cursor-pointer">
                                 {product.name}
                               </h3>
                               
                               {/* Price */}
                               <div className="flex items-center gap-2 mb-3">
-                                <span className="text-blue-500 font-bold text-lg">
+                                <span className="text-black font-bold text-lg">
                                   ₹{product.price}
                                 </span>
                                 {product.originalPrice && product.originalPrice > product.price && (
@@ -1674,7 +1674,7 @@ line-clamp-2">
                                   e.stopPropagation();
                                   handleAddToCart(product);
                                 }}
-                                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm"
+                                className="w-full bg-[#0B2239] hover:bg-[#0B2239] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-300 text-sm"
                               >
                                 Add to Cart
                               </button>
@@ -1813,7 +1813,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm line-clamp-2">{product.name}</h4>
                             <p className="text-gray-600 text-xs">by {product.category}</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹{product.price}</div>
+                            <div className="text-[] font-bold text-lg mt-1">₹{product.price}</div>
                             {product.originalPrice && product.originalPrice > product.price && (
                               <div className="text-gray-400 text-xs line-through">₹{product.originalPrice}</div>
                             )}
@@ -1831,7 +1831,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm">More products coming soon!</h4>
                             <p className="text-gray-600 text-xs">Stay tuned for updates</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹999</div>
+                            <div className="text-[#131929] font-bold text-lg mt-1">₹999</div>
                           </div>
                         </div>
                       </div>
@@ -1867,7 +1867,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm line-clamp-2">{product.name}</h4>
                             <p className="text-gray-600 text-xs">by {product.category}</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹{product.price}</div>
+                            <div className="text-[#131929] font-bold text-lg mt-1">₹{product.price}</div>
                             {product.originalPrice && product.originalPrice > product.price && (
                               <div className="text-gray-400 text-xs line-through">₹{product.originalPrice}</div>
                             )}
@@ -1891,7 +1891,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm">More products coming soon!</h4>
                             <p className="text-gray-600 text-xs">Stay tuned for updates</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹999</div>
+                            <div className="text-[#131929]font-bold text-lg mt-1">₹999</div>
                           </div>
                         </div>
                       </div>
@@ -1927,7 +1927,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm line-clamp-2">{product.name}</h4>
                             <p className="text-gray-600 text-xs">by {product.category}</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹{product.price}</div>
+                            <div className="text-[#131929] font-bold text-lg mt-1">₹{product.price}</div>
                             {product.originalPrice && product.originalPrice > product.price && (
                               <div className="text-gray-400 text-xs line-through">₹{product.originalPrice}</div>
                             )}
@@ -1945,7 +1945,7 @@ line-clamp-2">
                           <div className="flex-1">
                             <h4 className="text-gray-800 font-bold text-sm">More products coming soon!</h4>
                             <p className="text-gray-600 text-xs">Stay tuned for updates</p>
-                            <div className="text-blue-600 font-bold text-lg mt-1">₹999</div>
+                            <div className="text-[#131929] font-bold text-lg mt-1">₹999</div>
                           </div>
                         </div>
                       </div>

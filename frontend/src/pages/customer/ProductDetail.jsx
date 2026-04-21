@@ -305,6 +305,7 @@ const ProductDetail = () => {
             </div>
           </div>
 
+          
           <div className="mb-6">
             <label className="block font-semibold mb-2">Quantity:</label>
             <input
