@@ -5,6 +5,7 @@ import { CartContext } from '../../context/CartContext'
 import { generateShareLinks, getStoredAffiliateCode } from '../../utils/affiliateTracker'
 import FurnitureSection from './Vedio'
 import TeamSection from '../../components/TeamSection'
+import AutoGuide from '../../components/AutoGuide'
 
 export default function Product() {
   const [products, setProducts] = useState([])
@@ -695,6 +696,9 @@ export default function Product() {
   }
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
+      {/* Auto Guide */}
+      <AutoGuide page="product" />
+      
       {/* Notification Toast */}
       {notification.show && (
         <div className={`fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 animate-slide-in ${

@@ -5,6 +5,7 @@ import axios from '../../utils/axios'
 import FashionApproach from '../../components/FashionApproach'
 import OfferSlide from './OfferSlider'
 import TeamSlider from '../../components/TeamSlider'
+import TeamSection from '../../components/TeamSection'
 
 
 
@@ -1191,7 +1192,8 @@ const Home = () => {
 </section>
 
       {/* Team Slider */}
-      <TeamSlider />
+      {/* <TeamSlider />  */}
+       <TeamSection/>
     </div>
   )
 }

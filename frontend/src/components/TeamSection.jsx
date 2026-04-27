@@ -236,7 +236,7 @@ export default function TeamSection() {
             <div className="flex items-center justify-center gap-3 md:gap-4 mt-10 md:mt-14">
               <button 
                 onClick={() => setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)}
-                className="bg-gradient-to-r from-[#3F322C] via-[#3F322C] to-[#3F322C] hover:from-[#3F322C] hover:to-[#3F322C] text-white rounded-full p-2.5 md:p-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
+                className="bg-gradient-to-r from-[#000000] via-[#000000] to-[#000000] hover:from-[#000000] hover:to-[#000000] text-white rounded-full p-2.5 md:p-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
               >
                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -258,9 +258,11 @@ export default function TeamSection() {
                 ))}
               </div>
 
+
+
               <button 
                 onClick={() => setCurrentSlide((prev) => (prev + 1) % totalSlides)}
-                className="bg-gradient-to-r from-[#3F322C] via-[#3F322C] to-[#3F322C] hover:from-[#3F322C] hover:to-[#3F322C] text-white rounded-full p-2.5 md:p-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
+                className="bg-gradient-to-r from-[#000000] via-[#000000] to-[#000000] hover:from-[#000000] hover:to-[#000000] text-white rounded-full p-2.5 md:p-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
               >
                 <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
