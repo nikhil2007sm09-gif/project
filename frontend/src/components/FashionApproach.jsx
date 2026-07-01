@@ -59,8 +59,8 @@ const FashionApproach = () => {
   }
 
   return (
-    <section className="bg-[#f5f5f5] py-16">
-      <div className="container mx-auto px-4 md:px-8 lg:px-12">
+    <section className="bg-[#f3f2ee] font-sans selection:bg-orange-200 py-16">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 ">
         <div className="flex flex-col items-center text-center mb-16">
           <h2
             style={{ fontFamily: '"Beatrice Deck Trial", sans-serif' }}

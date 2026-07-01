@@ -155,7 +155,7 @@ export default function TeamSection() {
   )
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 via-white to-pink-50 py-16 md:py-24 px-4 md:px-6 relative overflow-hidden">
+    <div className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl"></div>

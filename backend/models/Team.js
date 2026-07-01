@@ -17,25 +17,27 @@ const teamSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: true
+    default: ''
   },
   imageData: {
     type: String,
-    default: null
+    default: ''
   },
   email: {
     type: String,
-    trim: true
+    trim: true,
+    default: ''
   },
   phone: {
     type: String,
-    trim: true
+    trim: true,
+    default: ''
   },
   socialLinks: {
-    linkedin: String,
-    twitter: String,
-    instagram: String,
-    facebook: String
+    facebook: { type: String, default: '' },
+    twitter: { type: String, default: '' },
+    instagram: { type: String, default: '' },
+    linkedin: { type: String, default: '' }
   },
   order: {
     type: Number,
@@ -55,4 +57,6 @@ const teamSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('Team', teamSchema);
+const Team = mongoose.model('Team', teamSchema);
+
+export default Team;
