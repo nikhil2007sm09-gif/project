@@ -45,11 +45,7 @@ font-extrabold mb-6 px-4 text-center tracking-wide">
               <div
                 key={index}
                 className="group relative bg-white/70 backdrop-blur-lg rounded-3xl p-6 
-                shadow-md hover:shadow-2xl 
-                hover:shadow-orange-200 
-                transition-all duration-500 
-                border border-orange-100 
-                hover:-translate-y-3"
+        "
               >
                 
                 {/* Year Badge */}

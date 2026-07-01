@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Heart, ShoppingCart, Star, Eye, Filter, Search, X, ChevronDown, Share2 } from 'lucide-react'
 import { CartContext } from '../../context/CartContext'
 import { generateShareLinks, getStoredAffiliateCode } from '../../utils/affiliateTracker'
-import FurnitureSection from './Vedio'
-import TeamSection from '../../components/TeamSection'
-import AutoGuide from '../../components/AutoGuide'
+import FurnitureSection from '../../pages/customer/Vedio'
+import AutoGuide from '../AutoGuider/AutoGuide'
+import ProductCard from '../ProductCard/ProductCard'
+import FilterSidebar from './FilterSidebar'
+import ProductsGrid from './ProductsGrid'
 
 export default function Product() {
   const [products, setProducts] = useState([])
@@ -992,500 +994,35 @@ export default function Product() {
       </div>
       <div className="container mx-auto px-4 py-6 md:py-8" id="products-section">
         <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
-          {/* Filter Sidebar */}
-          <div className={`lg:w-1/4 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-            <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 sticky top-4">
-              <div className="flex items-center justify-between mb-4 md:mb-6">
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 flex items-center gap-2">
-                  <Filter className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
-                  Filters
-                </h3>
-                <button 
-                  onClick={() => setShowFilters(false)}
-                  className="lg:hidden p-1 hover:bg-gray-100 rounded-full"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
+          {/* Filter Sidebar - Now Sticky */}
+          <FilterSidebar
+            categories={categories}
+            selectedCategory={selectedCategory}
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            priceRange={priceRange}
+            onPriceChange={setPriceRange}
+            sortBy={sortBy}
+            onSortChange={setSortBy}
+            onCategoryChange={setSelectedCategory}
+            showFilters={showFilters}
+            onToggleFilters={() => setShowFilters(!showFilters)}
+          />
 
-              {/* Search Filter */}
-              <div className="mb-4 md:mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Search Products</label>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 md:w-5 md:h-5" />
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-9 md:pl-10 pr-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-gray-800 placeholder-gray-500 text-sm md:text-base"
-                  />
-                </div>
-              </div>
-
-              {/* Price Range Filter */}
-              <div className="mb-8">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">Filter By Price</h4>
-                <div className="bg-orange-50 rounded-xl p-4 mb-4">
-                  <div className="text-center mb-4">
-                    <span className="text-sm text-gray-600">Selected Range</span>
-                    <div className="flex items-center justify-center gap-2 mt-1">
-                      <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        ₹{priceRange[0]}
-                      </span>
-                      <span className="text-gray-400">—</span>
-                      <span className="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                        ₹{priceRange[1]}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="relative mb-6">
-                  <input
-                    type="range"
-                    min="0"
-                    max="10000"
-                    value={priceRange[1]}
-                    onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-orange"
-                  />
-                  <div className="flex justify-between text-sm text-gray-500 mt-2">
-                    <span>₹0</span>
-                    <span>₹10,000</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  <button 
-                    onClick={() => setPriceRange([0, 1000])}
-                    className="text-sm py-2 px-3 border border-gray-200 rounded-lg hover:border-orange-500 hover:text-orange-500 transition-colors"
-                  >
-                    Under ₹1K
-                  </button>
-                  <button 
-                    onClick={() => setPriceRange([1000, 5000])}
-                    className="text-sm py-2 px-3 border border-gray-200 rounded-lg hover:border-orange-500 hover:text-orange-500 transition-colors"
-                  >
-                    ₹1K - ₹5K
-                  </button>
-                </div>
-                {/* Sort By */}
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Sort By</label>
-                  <select 
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  >
-                    <option value="name">Name</option>
-                    <option value="price-low">Price: Low to High</option>
-                    <option value="price-high">Price: High to Low</option>
-                  </select>
-                </div>
-
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
-                  Apply Filter
-                </button>
-              </div>
-
-             
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">Filter By Category</h4>
-                
-                <div className="relative mb-4">
-                  <button
-                    onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
-                    className="w-full p-3 border border-gray-300 rounded-lg text-left flex items-center justify-between hover:border-orange-500 transition-colors"
-                  >
-                    <span className="text-gray-600">Find a Category</span>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${showCategoryDropdown ? 'rotate-180' : ''}`} />
-                  </button>
-                  
-                  {showCategoryDropdown && (
-                    <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-10 mt-1">
-                      {categoryOptions.map((option) => (
-                        <button
-                          key={option.value}
-                          onClick={() => {
-                            setSelectedCategory(option.value)
-                            setShowCategoryDropdown(false)
-                          }}
-                          className="w-full p-3 text-left hover:bg-orange-50 hover:text-orange-600 transition-colors flex items-center gap-2"
-                        >
-                          <span>{option.icon}</span>
-                          <span>{option.label}</span>
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-4">
-                  {categoryOptions.slice(0, showAllCategories ? categoryOptions.length : 4).map((option) => (
-                    <label key={option.value} className="flex items-center gap-4 cursor-pointer group">
-                      <div className="relative">
-                        <input
-                          type="radio"
-                          name="category"
-                          value={option.value}
-                          checked={selectedCategory === option.value}
-                          onChange={(e) => setSelectedCategory(e.target.value)}
-                          className="sr-only"
-                        />
-                        <div className={`w-6 h-6 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
-                          selectedCategory === option.value 
-                            ? 'border-orange-500 bg-orange-500' 
-                            : 'border-gray-300 group-hover:border-orange-400'
-                        }`}>
-                          {selectedCategory === option.value && (
-                            <div className="w-3 h-3 bg-white rounded-full"></div>
-                          )}
-                        </div>
-                      </div>
-                      <span className={`text-base transition-colors ${
-                        selectedCategory === option.value 
-                          ? 'text-orange-600 font-medium' 
-                          : 'text-gray-700 group-hover:text-orange-600'
-                      }`}>
-                        {option.label}
-                      </span>
-                    </label>
-                  ))}
-                  
-                  {categoryOptions.length > 4 && (
-                    <button
-                      onClick={() => setShowAllCategories(!showAllCategories)}
-                      className="text-orange-500 hover:text-orange-600 text-sm font-medium flex items-center gap-1 mt-3"
-                    >
-                      {showAllCategories ? (
-                        <>
-                          <span>Show Less</span>
-                          <ChevronDown className="w-4 h-4 rotate-180 transition-transform" />
-                        </>
-                      ) : (
-                        <>
-                          <span>Show More ({categoryOptions.length - 4} more)</span>
-                          <ChevronDown className="w-4 h-4 transition-transform" />
-                        </>
-                      )}
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Products Section */}
-          <div className="lg:w-3/4">
-            {/* Mobile Filter Button */}
-            <div className="lg:hidden mb-4 md:mb-6">
-              <button 
-                onClick={() => setShowFilters(true)}
-                className="flex items-center gap-2 bg-white px-3 md:px-4 py-2 md:py-3 rounded-lg md:rounded-xl shadow-lg border hover:shadow-xl transition-all duration-300 text-sm md:text-base"
-              >
-                <Filter className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
-                <span className="font-medium">Filters</span>
-              </button>
-            </div>
-
-            {error && (
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 text-blue-800 px-6 py-4 rounded-xl mb-8 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-blue-500">ℹ️</span>
-                  <p className="font-medium">{error}</p>
-                </div>
-              </div>
-            )}
-
-            {/* Products Count and Selected Category */}
-            <div className="text-center mb-8">
-              {selectedCategory === 'all' ? (
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    All Products
-                  </h3>
-                  <p className="text-gray-600 font-medium">
-                    {filteredProducts.length} products found across all categories
-                  </p>
-                </div>
-              ) : selectedCategory ? (
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    {categories.find(cat => cat._id === selectedCategory)?.name || 'Selected Category'}
-                  </h3>
-                  <p className="text-gray-600 font-medium">
-                    {filteredProducts.length} products found in this category
-                  </p>
-                </div>
-              ) : (
-                <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    Select a Category
-                  </h3>
-                  <p className="text-gray-600 font-medium">
-                    Click on any category above to view products
-                  </p>
-                </div>
-              )}
-            </div>
-            {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-              {(showAllProducts ? filteredProducts : filteredProducts.slice(0, 40)).map((product, index) => (
-                <div 
-                  key={product._id} 
-                  className="group bg-white rounded-lg md:rounded-xl lg:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-purple-200 transform hover:-translate-y-1 md:hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={product.images?.[0] || 'https://via.placeholder.com/400x300?text=Product+Image'} 
-                      alt={product.name}
-                      className="w-full h-32 sm:h-36 md:h-48 lg:h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    
-                    {/* Discount Badge */}
-                    {product.originalPrice && product.originalPrice > product.price && (
-                      <div className="absolute top-2 left-2">
-                        <span className="bg-red-500 text-white px-2 py-0.5 md:px-3 md:py-1 rounded-md text-[10px] md:text-xs font-medium shadow-md">
-                          {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Action Buttons */}
-                    <div className="absolute top-2 right-2 flex flex-col gap-1 md:gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <button 
-                        onClick={() => toggleWishlist(product)}
-                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
-                        title={isInWishlist(product._id) ? "Remove from Wishlist" : "Add to Wishlist"}
-                      >
-                        <Heart className={`w-3 h-3 md:w-4 md:h-4 transition-colors ${
-                          isInWishlist(product._id) 
-                            ? 'text-red-500 fill-red-500' 
-                            : 'text-gray-600 hover:text-red-500'
-                        }`} />
-                        <div className="absolute -top-1 -left-1 bg-red-500 text-white text-[8px] md:text-[10px] font-medium rounded-full min-w-[16px] md:min-w-[18px] h-4 md:h-[18px] flex items-center justify-center px-1">
-                          {getLikeCount(product)}
-                        </div>
-                      </button>
-                      <button 
-                        onClick={() => handleQuickView(product)}
-                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
-                        title="Quick View"
-                      >
-                        <Eye className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-blue-500" />
-                      </button>
-                      <button 
-                        onClick={() => handleAddToCart(product)}
-                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
-                        title="Add to Cart"
-                      >
-                        <ShoppingCart className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-green-500" />
-                      </button>
-                      <Link
-                        to={`/product/${product._id}/share`}
-                        className="bg-white/95 backdrop-blur-sm p-1.5 md:p-2 rounded-lg shadow-md hover:bg-white hover:shadow-lg transition-all duration-300 relative group/btn"
-                        title="Share Product"
-                      >
-                        <Share2 className="w-3 h-3 md:w-4 md:h-4 text-gray-600 hover:text-purple-500" />
-                      </Link>
-                    </div>
-                    {/* Stock Badge - Bottom Right */}
-                    <div className="absolute bottom-2 right-2">
-                      {product.stock > 0 ? (
-                        <span className="bg-green-500 text-white px-1.5 py-0.5 md:px-2 md:py-1 rounded-md text-[10px] md:text-xs font-medium shadow-md">
-                          {product.stock} left
-                        </span>
-                      ) : (
-                        <span className="bg-red-500 text-white px-1.5 py-0.5 md:px-2 md:py-1 rounded-md text-[10px] md:text-xs font-medium shadow-md">
-                          Out of Stock
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Like Count Badge - Bottom Left */}
-                    <div className="absolute bottom-2 left-2">
-                      <div className="bg-red-500 text-white px-2 py-1 rounded-md flex items-center gap-1 shadow-md">
-                        <Heart className="w-3 h-3 fill-white" />
-                        <span className="text-[10px] md:text-xs font-medium">
-                          {getLikeCount(product)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-3 sm:p-4 md:p-6">
-                    {/* Category */}
-                   <div className="mb-2 md:mb-3">
-  <span className="
-    inline-block
-    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
-    text-white
-    px-3 py-1
-    rounded-full
-    text-[10px] md:text-xs
-    font-semibold
-    shadow-md
-    transition-all duration-300">
-    
-    {product.category || 'Product'}
-    
-  </span>
-</div>
-
-<h3 className="
-text-sm sm:text-base md:text-lg 
-font-bold 
-bg-clip-text text-transparent
-bg-gradient-to-r from-orange-500 to-[#3F322C]
-line-clamp-2">
-  {product.name}
-</h3>
-
-                    {/* Rating and Likes */}
-                    <div className="flex items-center justify-between mb-2 md:mb-3">
-                      <div className="flex items-center gap-1">
-                        <div className="flex">
-                          {[...Array(5)].map((_, i) => (
-                            <Star 
-                              key={i} 
-                              className={`w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 ${i < Math.floor(product.rating || 4.5) ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`} 
-                            />
-                          ))}
-                        </div>
-                        <span className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium">
-                          ({product.reviews || 0})
-                        </span>
-                      </div>
-                      
-                      {/* Like Counter Display */}
-                      <div className="flex items-center gap-1 bg-red-50 px-2 py-1 rounded-full">
-                        <Heart className={`w-3 h-3 ${isInWishlist(product._id) ? 'text-red-500 fill-red-500' : 'text-red-400'}`} />
-                        <span className="text-[10px] sm:text-xs font-bold text-red-600">
-                          {getLikeCount(product)}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Price */}
-                  <div className="flex items-center gap-2 mb-2 md:mb-4">
-
-  <span className="
-    text-sm sm:text-lg md:text-2xl 
-    font-extrabold 
-    bg-clip-text text-transparent
-    bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]">
-    
-    ₹{product.price}
-
-  </span>
-
-  {product.originalPrice && product.originalPrice > product.price && (
-    <>
-      <span className="
-        text-gray-400 
-        line-through 
-        text-[10px] sm:text-xs md:text-sm">
-        
-        ₹{product.originalPrice}
-        
-      </span>
-
-      <span className="
-        text-[10px] sm:text-xs 
-        font-semibold 
-        bg-orange-100 
-        text-orange-600 
-        px-2 py-0.5 
-        rounded-md">
-        Save {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}%
-      </span>
-    </>
-  )}
-
-</div>
-
-                    {/* View Details Button */}
-                 <Link 
-  to={`/product/${product._id}`}
-  className="
-  group relative block w-full 
-  bg-gradient-to-r from-orange-400 via-orange-500 to-[#3F322C]
-  text-white 
-  py-1.5 sm:py-2 md:py-3 
-  px-2 sm:px-3 md:px-4 
-  rounded-md sm:rounded-lg md:rounded-xl 
-  text-center 
-  font-medium 
-  shadow-lg 
-  overflow-hidden
-  hover:scale-105
-  transition-all duration-300 
-  text-xs sm:text-sm md:text-base"
->
-  <span className="relative z-10">
-    View Details
-  </span>
-
-  <div className="
-  absolute inset-0 
-  bg-gradient-to-r from-orange-500 to-[#3F322C]
-  opacity-0 group-hover:opacity-100 
-  transition-opacity duration-300"></div>
-</Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* See More Button */}
-            {filteredProducts.length > 40 && !showAllProducts && (
-              <div className="text-center mt-8 md:mt-12">
-                <button 
-                  onClick={() => setShowAllProducts(true)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
-                >
-                  See More ({filteredProducts.length - 40} more products)
-                </button>
-              </div>
-            )}
-            
-            {/* Show Less Button */}
-            {showAllProducts && filteredProducts.length > 40 && (
-              <div className="text-center mt-8 md:mt-12">
-                <button 
-                  onClick={() => setShowAllProducts(false)}
-                  className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
-                >
-                  Show Less
-                </button>
-              </div>
-            )}
-            
-            {/* No Products Found or No Category Selected */}
-            {filteredProducts.length === 0 && !loading && (
-              <div className="text-center py-16">
-                {!selectedCategory ? (
-                  <>
-                    <div className="text-6xl mb-4">👕</div>
-                    <h3 className="text-2xl font-bold text-gray-600 mb-2">Choose a Category</h3>
-                    <p className="text-gray-500 mb-6">Click on any category above to see products, or click "All Categories" to see all products.</p>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-6xl mb-4">🔍</div>
-                    <h3 className="text-2xl font-bold text-gray-600 mb-2">No products found</h3>
-                    <p className="text-gray-500">
-                      {selectedCategory === 'all' 
-                        ? 'No products available at the moment.' 
-                        : 'No products available in this category at the moment.'
-                      }
-                    </p>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
+          {/* Products Grid with Pagination */}
+          <ProductsGrid
+            filteredProducts={filteredProducts}
+            selectedCategory={selectedCategory}
+            categories={categories}
+            error={error}
+            onQuickView={handleQuickView}
+            onAddToCart={handleAddToCart}
+            onToggleWishlist={toggleWishlist}
+            isInWishlist={isInWishlist}
+            getLikeCount={getLikeCount}
+            showFilters={showFilters}
+            onToggleFilters={() => setShowFilters(!showFilters)}
+          />
         </div>
 
         {/* Popular Products Section with Slider */}
@@ -2109,8 +1646,7 @@ line-clamp-2">
         }
       `}</style>
       
-      {/* Team Section */}
-      <TeamSection />
+    
     </div>
   )
 }

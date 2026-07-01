@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { ShoppingBag, ArrowRight, Mail, Phone } from 'lucide-react'
-import AutoGuide from '../../components/AutoGuide'
+import AutoGuide from '../../components/AutoGuider/AutoGuide'
 
 const Login = () => {
   const [formData, setFormData] = useState({ emailOrPhone: '', password: '' })

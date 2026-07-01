@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react'
-import { CartContext } from '../context/CartContext'
+import { CartContext } from '../../context/CartContext'
 
 const CartDrawer = ({ isOpen, onClose }) => {
   const { cart, updateQuantity, removeFromCart, getTotal, clearCart } = useContext(CartContext)

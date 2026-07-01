@@ -1,4 +1,4 @@
-import TeamSection from '../../components/TeamSection'
+import TeamSection from '../../components/home/TeamSection'
 
 
 // About Page Section Components

@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { Shield, ArrowRight } from 'lucide-react'
-import AutoGuide from '../../components/AutoGuide'
+import AutoGuide from '../../components/AutoGuider/AutoGuide'
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({ email: '', password: '' })

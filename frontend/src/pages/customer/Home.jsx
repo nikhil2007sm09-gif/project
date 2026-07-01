@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import axios from '../../utils/axios'
-import FashionApproach from '../../components/FashionApproach'
+import FashionApproach from '../../components/home/FashionApproach'
 import OfferSlide from '../../components/home/OfferSlider'
 
-import TeamSection from '../../components/TeamSection'
+import TeamSection from '../../components/home/TeamSection'
 
 import CoinWalletAnimation from '../../components/common/coin'
 

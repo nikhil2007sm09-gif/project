@@ -4,7 +4,7 @@ import founderImg from '../../assets/images/Founder.png';
 const FounderMessage = () => {
   return (
     <div className=" bg-[#f3f2ee] flex items-center justify-center p-6 md:p-12 font-sans selection:bg-orange-200">
-      <div className="w-full ">
+      <div className="w-full container mx-auto ">
         
         
         <div className="text-center mb-12 md:mb-16">

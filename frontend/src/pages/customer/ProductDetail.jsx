@@ -154,7 +154,7 @@ const ProductDetail = () => {
         <span className="text-gray-900">{product.name}</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 px-4 md:px-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           {/* Main Image */}
           <div className="bg-gray-100 rounded-lg h-96 mb-4 flex items-center justify-center overflow-hidden border-2 border-gray-200">
@@ -179,12 +179,12 @@ const ProductDetail = () => {
                 </svg>
                 <span className="text-gray-400 text-lg">No Image Available</span>
               </div>
-            )}
+            )}4444
           </div>
 
           {/* Thumbnail Gallery */}
           {productImages.length > 1 && (
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-1 md:gap-2">
+            <div className="grid grid-cols-5 gap-2">
               {productImages.map((img, index) => (
                 <button
                   key={index}
@@ -305,7 +305,6 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          
           <div className="mb-6">
             <label className="block font-semibold mb-2">Quantity:</label>
             <input
