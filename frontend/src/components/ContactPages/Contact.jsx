@@ -99,12 +99,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative 
+     
+      {/* <section className="relative 
 bg-gradient-to-br from-orange-400 via-orange-500 to-[#3F322C] 
 text-white py-20 overflow-hidden">
 
-  {/* Background Glow */}
   <div className="absolute inset-0 opacity-10">
     <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
     <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2"></div>
@@ -113,7 +112,6 @@ text-white py-20 overflow-hidden">
   <div className="container mx-auto px-4 relative z-10">
     <div className="max-w-3xl mx-auto text-center">
 
-      {/* Badge */}
       <div className="
       inline-flex items-center 
       bg-white/20 backdrop-blur-md 
@@ -128,7 +126,6 @@ text-white py-20 overflow-hidden">
 
       </div>
 
-      {/* Heading */}
       <h1 className="
       text-5xl md:text-6xl 
       font-black mb-6 
@@ -137,8 +134,6 @@ text-white py-20 overflow-hidden">
       from-white via-orange-100 to-white">
         Get in Touch
       </h1>
-
-      {/* Description */}
       <p className="
       text-lg md:text-xl 
       text-orange-100 
@@ -149,7 +144,7 @@ text-white py-20 overflow-hidden">
 
     </div>
   </div>
-</section>
+</section> */}
 
       {/* Success Message */}
       {success && (

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../../utils/axios'
 import { Search } from 'lucide-react'
+import BlogHero from './BlogHero'
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([])
@@ -49,11 +50,12 @@ const BlogList = () => {
   }
 
   return (
+    
     <div className="min-h-screen bg-gray-50 py-8">
+      
+        <BlogHero/>
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-gray-800">Blog</h1>
-
-        {/* Category Circles Section - Only 6 Categories */}
+      
         <div className="mb-8 md:mb-12 py-4 md:py-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Blog Categories</h2>

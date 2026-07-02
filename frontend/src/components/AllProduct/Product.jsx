@@ -1030,8 +1030,8 @@ export default function Product() {
           <div className="container mx-auto px-4">
             {/* Section Header */}
             <div className="flex items-center justify-between mb-8">
-              <div className="inline-flex items-center bg-blue-500 text-white px-4 py-2 rounded-lg font-bold text-lg">
-                <span className="bg-white text-blue-500 px-2 py-1 rounded mr-2 text-sm font-bold">Popular</span>
+              <div className="inline-flex items-center bg-black text-white px-4 py-2 rounded-lg font-bold text-lg">
+                <span className="bg-white text-black px-2 py-1 rounded mr-2 text-sm font-bold">Popular</span>
                 Products
               </div>
               

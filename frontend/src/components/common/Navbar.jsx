@@ -12,11 +12,16 @@ const Navbar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const userMenuRef = useRef(null)
 
+  // स्क्रॉल बिहेवियर के लिए स्टेट्स
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
   const closeMobileMenu = () => setMobileMenuOpen(false)
   const toggleUserMenu = () => setUserMenuOpen(!userMenuOpen)
   const closeUserMenu = () => setUserMenuOpen(false)
 
+  // 1. बाहर क्लिक करने पर यूजर मेनू बंद करने का लॉजिक
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
@@ -29,8 +34,32 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [userMenuOpen])
 
+  // 2. स्क्रॉल करने पर नेवबार छुपाने और दिखाने का लॉजिक
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // अगर मोबाइल मेनू खुला है, तो नेवबार को न छुपाएं
+      if (mobileMenuOpen) return;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // नीचे स्क्रॉल करने पर छुपाएं (कम से कम 80px स्क्रॉल होने के बाद)
+        setIsVisible(false);
+      } else {
+        // ऊपर स्क्रॉल करने पर दिखाएं
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY, mobileMenuOpen]);
+
   return (
-    <nav className="backdrop-blur-md bg-white/80 sticky top-0 z-50 border-b border-gray-100">
+    // यहाँ हमने `transition-transform duration-300` और `translate-y` क्लासेस जोड़ी हैं ताकि स्मूथ एनीमेशन मिले
+    <nav className={`backdrop-blur-md bg-white/80 sticky top-0 z-50 border-b border-gray-100 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           
@@ -196,4 +225,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

@@ -11,6 +11,7 @@ import StatsSection from '../../components/about/StatsSection'
 import FounderMessage from '../../components/about/ValuesSection'
 
 
+
 const About = () => {
   return (
     <div className="min-h-screen ">
@@ -25,6 +26,7 @@ const About = () => {
       {/* Stats Section */}
       <StatsSection />
 
+    
       {/* Timeline Section */}
       <TimelineSection />
 <FounderMessage/>

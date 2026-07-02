@@ -72,7 +72,6 @@ export default function TeamSection() {
   return (
     <div className="bg-[#f3f2ee] font-sans selection:bg-orange-200 py-20 px-4 md:px-8 relative overflow-hidden">
       
-      {/* Premium Minimalist Ambient Shadows */}
       <div className="absolute inset-0 opacity-40 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-yellow-200/40 rounded-full filter blur-[120px]"></div>
         <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-orange-200/30 rounded-full filter blur-[120px]"></div>
@@ -80,11 +79,12 @@ export default function TeamSection() {
 
       <div className="relative z-10 container mx-auto">
         
-        {/* Modern Minimal Heading section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-gray-300/60 pb-8">
           <div>
             <span className="text-xs font-bold tracking-[0.2em] text-[#f97316] uppercase block mb-2">Our Experts</span>
-            <h2 className="text-3xl md:text-5xl font-black text-[#1a2e40] tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-[#1a2e40] tracking-tight"
+            
+            >
               Meet Our Creative <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a2e40] to-[#c29d70]">Team</span>
             </h2>
           </div>
