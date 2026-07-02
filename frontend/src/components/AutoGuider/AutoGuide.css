@@ -1,0 +1,299 @@
+/* Auto Guide Styles */
+
+.guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  cursor: pointer;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.guide-highlight {
+  position: fixed;
+  border: 3px solid #ff6b6b;
+  border-radius: 12px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 107, 107, 0.8);
+  z-index: 1000;
+  pointer-events: none;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 107, 107, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 20px 10px rgba(255, 107, 107, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 0 0 rgba(255, 107, 107, 0.8);
+  }
+}
+
+.guide-tooltip {
+  position: fixed;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  max-width: 320px;
+  min-width: 260px;
+  animation: slideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid #ff6b6b;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.guide-tooltip::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.guide-tooltip-top::before {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.guide-tooltip-bottom::before {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.guide-tooltip-left::before {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.guide-tooltip-right::before {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.guide-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.guide-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-radius: 50%;
+}
+
+.guide-close:hover {
+  color: #ff6b6b;
+  background-color: #fff0f0;
+  transform: rotate(90deg);
+}
+
+.guide-tooltip p {
+  margin: 0 0 20px 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.guide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.guide-progress {
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+  background: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.guide-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.guide-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.guide-btn-prev {
+  background: #f0f0f0;
+  color: #333;
+  border: 2px solid #e0e0e0;
+}
+
+.guide-btn-prev:hover:not(:disabled) {
+  background: #e8e8e8;
+  border-color: #d0d0d0;
+  transform: translateX(-2px);
+}
+
+.guide-btn-prev:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.guide-btn-next {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.guide-btn-next:hover {
+  background: linear-gradient(135deg, #ff5252, #ff6b6b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.show-guide-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  transition: all 0.3s ease;
+}
+
+.show-guide-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.45);
+}
+
+.show-guide-btn:active {
+  transform: scale(0.97);
+}
+
+.show-guide-btn::before {
+  content: "🛈 ";
+  margin-right: 4px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-tooltip {
+    max-width: 280px;
+    min-width: 220px;
+    padding: 18px;
+  }
+
+  .guide-header h3 {
+    font-size: 18px;
+  }
+
+  .guide-tooltip p {
+    font-size: 14px;
+  }
+
+  .guide-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-tooltip {
+    max-width: 85vw;
+    min-width: auto;
+    padding: 16px;
+  }
+
+  .guide-header h3 {
+    font-size: 16px;
+  }
+
+  .guide-tooltip p {
+    font-size: 13px;
+  }
+
+  .guide-buttons {
+    gap: 8px;
+  }
+
+  .guide-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .guide-progress {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}

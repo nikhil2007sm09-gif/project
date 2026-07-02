@@ -80,7 +80,7 @@ const AffiliateDashboard = () => {
 
   const generateProductLink = (product) => {
     const baseUrl = window.location.origin
-    const link = `${baseUrl}/products/${product._id}?ref=${affiliateCode}`
+    const link = `${baseUrl}/product/${product._id}?ref=${affiliateCode}`
     setSelectedProduct(product)
     setGeneratedLink(link)
   }

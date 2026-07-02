@@ -149,12 +149,15 @@ router.post('/login', async (req, res) => {
 
 router.get('/me', authenticate, async (req, res) => {
   try {
+    const user = await User.findById(req.user._id)
     res.json({
-      id: req.user._id,
-      name: req.user.name,
-      email: req.user.email,
-      role: req.user.role,
-      affiliateCode: req.user.affiliateCode
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      address: user.address,
+      role: user.role,
+      affiliateCode: user.affiliateCode
     })
   } catch (error) {
     res.status(500).json({ message: 'Server error' })
@@ -239,6 +242,51 @@ router.get('/activity/:userId', authenticate, async (req, res) => {
   } catch (error) {
     console.error('Activity fetch error:', error)
     res.status(500).json({ message: 'Server error' })
+  }
+})
+
+// Update user profile
+router.put('/update-profile', authenticate, async (req, res) => {
+  try {
+    const { name, email, phone, address } = req.body
+    const userId = req.user._id
+
+    // Find user
+    const user = await User.findById(userId)
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    // Check if email is being changed and if it's already taken
+    if (email && email !== user.email) {
+      const existingUser = await User.findOne({ email })
+      if (existingUser) {
+        return res.status(400).json({ message: 'Email already in use' })
+      }
+      user.email = email
+    }
+
+    // Update fields
+    if (name) user.name = name
+    if (phone) user.phone = phone
+    if (address) user.address = address
+
+    await user.save()
+
+    res.json({
+      message: 'Profile updated successfully',
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        address: user.address,
+        role: user.role
+      }
+    })
+  } catch (error) {
+    console.error('Error updating profile:', error)
+    res.status(500).json({ message: 'Error updating profile' })
   }
 })
 

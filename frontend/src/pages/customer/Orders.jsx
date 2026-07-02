@@ -73,7 +73,7 @@ const Orders = () => {
           </div>
           <h2 className="text-2xl font-bold mb-2">No Orders Yet</h2>
           <p className="text-gray-600 mb-6">Start shopping and your orders will appear here</p>
-          <Link 
+          <Link
             to="/products"
             className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-700 font-semibold"
           >
@@ -130,17 +130,17 @@ const Orders = () => {
                 <div className="p-6">
                   <div className="space-y-4">
                     {order.items.map((item, idx) => {
-                      const displayImage = (item.images && item.images.length > 0) 
-                        ? item.images[0] 
+                      const displayImage = (item.images && item.images.length > 0)
+                        ? item.images[0]
                         : item.image
 
                       return (
                         <div key={idx} className="flex items-center space-x-4 pb-4 border-b last:border-b-0">
                           <div className="w-20 h-20 bg-gray-200 rounded-lg flex-shrink-0 overflow-hidden">
                             {displayImage && (
-                              <img 
-                                src={displayImage} 
-                                alt={item.name} 
+                              <img
+                                src={displayImage}
+                                alt={item.name}
                                 className="w-full h-full object-cover"
                               />
                             )}
@@ -157,7 +157,7 @@ const Orders = () => {
 
                   {/* Shipping Address */}
                   <div className="mt-6 pt-6 border-t">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
                       <div>
                         <h4 className="font-semibold mb-2 flex items-center">
                           <Truck className="w-4 h-4 mr-2 text-primary" />
@@ -205,8 +205,7 @@ const Orders = () => {
                       </div>
                     </div>
                   </div>
-
-                  {/* Payment Info */}
+                  {/*  Payment Info */}
                   {order.paymentId && (
                     <div className="mt-4 pt-4 border-t">
                       <p className="text-sm text-gray-600">

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { Shield, ArrowRight } from 'lucide-react'
+import AutoGuide from '../../components/AutoGuider/AutoGuide'
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({ email: '', password: '' })
@@ -23,6 +24,9 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 flex items-center justify-center px-4 py-8">
+      {/* Auto Guide */}
+      <AutoGuide page="login" />
+      
       {/* Single Box Container */}
       <div className="w-full max-w-5xl rounded-3xl border border-orange-100 bg-white/90 backdrop-blur-xl shadow-2xl overflow-hidden">
         <div className="grid md:grid-cols-2">
@@ -92,7 +96,7 @@ const AdminLogin = () => {
                 </label>
                 <input
                   type="email"
-                  placeholder="admin@test.com"
+                  // placeholder="admin@test.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full rounded-xl border-2 border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-800 outline-none placeholder:text-gray-400 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all"
@@ -106,7 +110,7 @@ const AdminLogin = () => {
                 </label>
                 <input
                   type="password"
-                  placeholder="admin123"
+                  // placeholder="admin123"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="w-full rounded-xl border-2 border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-800 outline-none placeholder:text-gray-400 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all"
@@ -145,7 +149,7 @@ const AdminLogin = () => {
                   Affiliate
                 </Link>
               </div>
-              
+                 
               <div className="mt-4 text-center">
                 <Link to="/" className="text-xs text-gray-500 hover:text-gray-700 inline-flex items-center gap-1">
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

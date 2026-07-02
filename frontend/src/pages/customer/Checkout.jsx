@@ -296,7 +296,7 @@ const Checkout = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
             {step === 1 ? (
@@ -439,7 +439,7 @@ const Checkout = () => {
                   <h3 className="font-semibold text-lg mb-4 text-gray-700">Available options:</h3>
                   
                   {/* Main Payment Methods */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                     {/* Cards */}
                     <div className="flex flex-col items-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl hover:shadow-lg transition-all cursor-pointer border border-blue-200">
                       <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3 shadow-lg">
@@ -483,7 +483,7 @@ const Checkout = () => {
                       <Smartphone className="w-4 h-4 mr-2 text-purple-600" />
                       Popular UPI Apps
                     </h4>
-                    <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-3">
                       {/* PhonePe */}
                       <div className="flex flex-col items-center p-3 bg-white rounded-lg hover:shadow-md transition-all cursor-pointer border border-purple-100">
                         <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-purple-700 rounded-xl flex items-center justify-center mb-2 shadow-md">

@@ -2,29 +2,29 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect, useContext } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import { CartProvider, CartContext } from './context/CartContext'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import CartDrawer from './components/CartDrawer'
-import ScrollToTop from './components/ScrollToTop'
-import ScrollToTopOnMount from './components/ScrollToTopOnMount'
+import Navbar from '../src/components/common/Navbar'
+import Footer from './components/common/Footer'
+import CartDrawer from '../src/components/Cart/CartDrawer'
+import ScrollToTop from '../src/components/common/ScrollToTop'
+import ScrollToTopOnMount from './components/common/ScrollToTopOnMount'
 import ProtectedRoute from './components/ProtectedRoute'
 import { getAffiliateCodeFromURL, storeAffiliateCode, trackAffiliateClick } from './utils/affiliateTracker'
 import Home from './pages/customer/Home'
 import About from './pages/customer/About'
 import Contact from './pages/customer/Contact'
 
-import ProductDetail from './pages/customer/ProductDetail'
-import Cart from './pages/customer/Cart'
+import ProductDetail from '../src/components/AllProduct/ProductDetail'
+import Cart from '../src/components/Cart/Cart'
 import Checkout from './pages/customer/Checkout'
 import OrderSuccess from './pages/customer/OrderSuccess'
 import UnifiedLogin from './pages/auth/UnifiedLogin'
 import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
-import VendorLogin from './pages/vendor/VendorLogin'
-import VendorRegister from './pages/vendor/VendorRegister'
+import VendorLogin from './components/vendor/VendorLogin'
+import VendorRegister from './components/vendor/VendorRegister'
 import AffiliateLogin from './pages/affiliate/AffiliateLogin'
 import AffiliateRegister from './pages/affiliate/AffiliateRegister'
-import VendorDashboard from './pages/vendor/VendorDashboard'
+import VendorDashboard from './components/vendor/VendorDashboard'
 import AffiliateDashboard from './pages/affiliate/AffiliateDashboard'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminBlogs from './pages/admin/AdminBlogs'
@@ -42,7 +42,9 @@ import ShippingDelivery from './pages/customer/ShippingDelivery'
 import CancellationRefund from './pages/customer/CancellationRefund'
 import AdminTestimonials from './pages/admin/AdminTestimonials'
 import AdminSliders from './pages/admin/AdminSliders'
-import Product from './pages/customer/Product'
+import AdminTeam from './pages/admin/AdminTeam'
+import Product from '../src/components/AllProduct/Product'
+import ProductShare from '../src/components/AllProduct/ProductShare'
 
 function AffiliateTracker() {
   useEffect(() => {
@@ -81,6 +83,7 @@ function AppContent() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/products" element={<Product />} />
             <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/product/:id/share" element={<ProductShare />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-success" element={<OrderSuccess />} />
@@ -167,6 +170,14 @@ function AppContent() {
               element={
                 <ProtectedRoute allowedRoles={['admin']}>
                   <AdminSliders />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/team" 
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminTeam />
                 </ProtectedRoute>
               } 
             />

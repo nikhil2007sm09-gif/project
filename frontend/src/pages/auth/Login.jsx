@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 import { ShoppingBag, ArrowRight, Mail, Phone } from 'lucide-react'
+import AutoGuide from '../../components/AutoGuider/AutoGuide'
 
 const Login = () => {
   const [formData, setFormData] = useState({ emailOrPhone: '', password: '' })
@@ -21,8 +22,12 @@ const Login = () => {
     }
   }
 
+ 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-pink-50 flex items-center justify-center px-4 py-8 relative overflow-hidden">
+      {/* Auto Guide */}
+      <AutoGuide page="login" />
+      
       {/* Animated Background Blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>

@@ -179,7 +179,7 @@ const ProductDetail = () => {
                 </svg>
                 <span className="text-gray-400 text-lg">No Image Available</span>
               </div>
-            )}
+            )}4444
           </div>
 
           {/* Thumbnail Gallery */}
